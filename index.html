@@ -8,204 +8,281 @@
 <meta name="description" content="Tool of Tools - Fast, simple and useful online tools for everyday tasks.">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body{
-font-family:Arial,sans-serif;
-background:#0b0f19;
-color:#fff;
-line-height:1.6
+  font-family:Arial,sans-serif;
+  background:#0b0f19;
+  color:#ffffff;
+  line-height:1.6;
 }
+
 header{
-border-bottom:1px solid #202838;
-background:#0b0f19;
-position:sticky;
-top:0;
-z-index:100
+  border-bottom:1px solid #202838;
+  background:#0b0f19;
+  position:sticky;
+  top:0;
+  z-index:100;
 }
+
 .nav{
-max-width:1150px;
-margin:auto;
-padding:18px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center
+  max-width:1150px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
+
 .logo{
-font-size:22px;
-font-weight:800
+  font-size:22px;
+  font-weight:800;
 }
-.logo span,h1 span{color:#8b6cff}
+
+.logo span,
+h1 span{
+  color:#8b6cff;
+}
+
 .nav a{
-color:#aeb7c8;
-text-decoration:none;
-font-size:14px
+  color:#aeb7c8;
+  text-decoration:none;
+  font-size:14px;
 }
+
 .hero{
-max-width:900px;
-margin:auto;
-text-align:center;
-padding:75px 20px 50px
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+  padding:75px 20px 50px;
 }
+
 .badge{
-display:inline-block;
-background:#151b2a;
-border:1px solid #293247;
-color:#aeb7c8;
-padding:7px 13px;
-border-radius:50px;
-font-size:13px;
-margin-bottom:22px
+  display:inline-block;
+  background:#151b2a;
+  border:1px solid #293247;
+  color:#aeb7c8;
+  padding:7px 13px;
+  border-radius:50px;
+  font-size:13px;
+  margin-bottom:22px;
 }
+
 h1{
-font-size:clamp(42px,8vw,72px);
-line-height:1.05;
-letter-spacing:-2px;
-margin-bottom:20px
+  font-size:clamp(42px,8vw,72px);
+  line-height:1.05;
+  letter-spacing:-2px;
+  margin-bottom:20px;
 }
+
 .hero p{
-max-width:650px;
-margin:auto;
-color:#aeb7c8;
-font-size:17px
+  max-width:650px;
+  margin:auto;
+  color:#aeb7c8;
+  font-size:17px;
 }
+
 .search{
-max-width:650px;
-margin:35px auto 0;
-display:flex;
-background:#121827;
-border:1px solid #2a3448;
-border-radius:14px;
-padding:6px
+  max-width:650px;
+  margin:35px auto 0;
+  display:flex;
+  background:#121827;
+  border:1px solid #2a3448;
+  border-radius:14px;
+  padding:6px;
 }
+
 .search input{
-flex:1;
-border:0;
-outline:0;
-background:transparent;
-color:white;
-padding:14px;
-font-size:15px
+  flex:1;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:white;
+  padding:14px;
+  font-size:15px;
 }
-.search button,.qr button{
-border:0;
-border-radius:10px;
-background:#7657ff;
-color:white;
-padding:12px 22px;
-cursor:pointer;
-font-weight:700
+
+.search button,
+.tool button,
+.tool-box button{
+  border:0;
+  border-radius:10px;
+  background:#7657ff;
+  color:white;
+  padding:12px 22px;
+  cursor:pointer;
+  font-weight:700;
 }
+
 .section{
-max-width:1150px;
-margin:auto;
-padding:40px 20px
+  max-width:1150px;
+  margin:auto;
+  padding:40px 20px;
 }
+
 .section-title{
-font-size:27px;
-margin-bottom:22px
+  font-size:27px;
+  margin-bottom:22px;
 }
+
 .tools{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:15px
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:15px;
 }
+
 .tool{
-background:#111725;
-border:1px solid #222c3e;
-border-radius:16px;
-padding:22px;
-transition:.2s
+  background:#111725;
+  border:1px solid #222c3e;
+  border-radius:16px;
+  padding:22px;
+  transition:.2s;
 }
+
 .tool:hover{
-transform:translateY(-3px);
-border-color:#7657ff
+  transform:translateY(-3px);
+  border-color:#7657ff;
 }
+
 .tool-icon{
-font-size:28px;
-margin-bottom:12px
+  font-size:28px;
+  margin-bottom:12px;
 }
+
 .tool h3{
-font-size:17px;
-margin-bottom:6px
+  font-size:17px;
+  margin-bottom:6px;
 }
+
 .tool p{
-color:#8994a8;
-font-size:13px
+  color:#8994a8;
+  font-size:13px;
 }
+
 .tool button{
-margin-top:15px;
-width:100%;
-padding:10px;
-border:0;
-border-radius:9px;
-background:#7657ff;
-color:white;
-font-weight:bold;
-cursor:pointer
+  margin-top:15px;
+  width:100%;
+  padding:10px;
 }
-.qr{
-display:none;
-max-width:600px;
-margin:25px auto;
-padding:25px;
-background:#111725;
-border:1px solid #252f43;
-border-radius:18px;
-text-align:center
+
+.tool-box{
+  display:none;
+  max-width:650px;
+  margin:30px auto;
+  padding:25px;
+  background:#111725;
+  border:1px solid #252f43;
+  border-radius:18px;
+  text-align:center;
 }
-.qr input{
-width:100%;
-padding:13px;
-margin:10px 0;
-border-radius:9px;
-border:1px solid #303b50;
-background:#0b0f19;
-color:white;
-outline:none
+
+.tool-box h2{
+  margin-bottom:8px;
 }
+
+.tool-box p{
+  color:#929db0;
+  font-size:14px;
+}
+
+.tool-box input[type="text"],
+.tool-box input[type="file"]{
+  width:100%;
+  padding:13px;
+  margin:15px 0;
+  border-radius:9px;
+  border:1px solid #303b50;
+  background:#0b0f19;
+  color:white;
+  outline:none;
+}
+
+.tool-box input[type="range"]{
+  width:100%;
+  margin:15px 0;
+}
+
 #qrcode{
-margin:20px auto;
-display:flex;
-justify-content:center
+  margin:20px auto;
+  display:flex;
+  justify-content:center;
 }
+
+#compressionResult{
+  margin-top:20px;
+}
+
+#compressionResult p{
+  color:#dce2ed;
+  margin:5px 0;
+}
+
+#compressionResult a{
+  text-decoration:none;
+}
+
 .categories{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:12px
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
 }
+
 .category{
-background:#111725;
-border:1px solid #222c3e;
-padding:17px;
-border-radius:13px;
-text-align:center;
-color:#dce2ed
+  background:#111725;
+  border:1px solid #222c3e;
+  padding:17px;
+  border-radius:13px;
+  text-align:center;
+  color:#dce2ed;
 }
+
 .cta{
-max-width:850px;
-margin:50px auto;
-text-align:center;
-padding:55px 20px;
-background:#111725;
-border:1px solid #252f43;
-border-radius:22px
+  max-width:850px;
+  margin:50px auto;
+  text-align:center;
+  padding:55px 20px;
+  background:#111725;
+  border:1px solid #252f43;
+  border-radius:22px;
 }
+
 .cta h2{
-font-size:30px;
-margin-bottom:10px
+  font-size:30px;
+  margin-bottom:10px;
 }
-.cta p{color:#929db0}
+
+.cta p{
+  color:#929db0;
+}
+
 footer{
-border-top:1px solid #202838;
-text-align:center;
-padding:30px 20px;
-color:#707b90;
-font-size:13px
+  border-top:1px solid #202838;
+  text-align:center;
+  padding:30px 20px;
+  color:#707b90;
+  font-size:13px;
 }
+
 @media(max-width:600px){
-.nav a{display:none}
-.hero{padding-top:55px}
-.search button{padding:0 15px}
+  .nav a{
+    display:none;
+  }
+
+  .hero{
+    padding-top:55px;
+  }
+
+  .search button{
+    padding:0 15px;
+  }
+
+  h1{
+    letter-spacing:-1px;
+  }
 }
 </style>
 </head>
@@ -213,197 +290,496 @@ font-size:13px
 <body>
 
 <header>
-<div class="nav">
-<div class="logo">Tool <span>of Tools</span></div>
-<a href="#categories">Categories</a>
-</div>
+  <div class="nav">
+    <div class="logo">Tool <span>of Tools</span></div>
+    <a href="#categories">Categories</a>
+  </div>
 </header>
 
 <main>
 
 <section class="hero">
-<div class="badge">⚡ Fast • Simple • Free</div>
 
-<h1>Every Tool You Need.<br><span>One Place.</span></h1>
+  <div class="badge">⚡ Fast • Simple • Free</div>
 
-<p>
-Powerful, fast and easy-to-use online tools for everyday tasks.
-No complicated software. Just choose a tool and get things done.
-</p>
+  <h1>
+    Every Tool You Need.<br>
+    <span>One Place.</span>
+  </h1>
 
-<div class="search">
-<input id="searchInput" type="text" placeholder="Search for a tool..." oninput="searchTools()">
-<button onclick="searchTools()">Search</button>
-</div>
+  <p>
+    Powerful, fast and easy-to-use online tools for everyday tasks.
+    No complicated software. Just choose a tool and get things done.
+  </p>
+
+  <div class="search">
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search for a tool..."
+      oninput="searchTools()"
+    >
+    <button onclick="searchTools()">Search</button>
+  </div>
+
 </section>
+
 
 <section class="section">
-<h2 class="section-title">⭐ Popular Tools</h2>
 
-<div class="tools">
+  <h2 class="section-title">⭐ Popular Tools</h2>
 
-<div class="tool">
-<div class="tool-icon">▣</div>
-<h3>QR Code Generator</h3>
-<p>Create QR codes from any text or link.</p>
-<button onclick="openQR()">Open Tool</button>
-</div>
+  <div class="tools">
 
-<div class="tool">
-<div class="tool-icon">🖼️</div>
-<h3>Image Compressor</h3>
-<p>Reduce image size while keeping good quality.</p>
-<button onclick="openCompressor()">Open Tool</button>
-</div>
+    <div class="tool">
+      <div class="tool-icon">▣</div>
+      <h3>QR Code Generator</h3>
+      <p>Create QR codes from any text or link.</p>
+      <button onclick="openQR()">Open Tool</button>
+    </div>
 
-<div class="tool">
-<div class="tool-icon">🔐</div>
-<h3>Password Generator</h3>
-<p>Create strong and secure passwords.</p>
-</div>
+    <div class="tool">
+      <div class="tool-icon">🖼️</div>
+      <h3>Image Compressor</h3>
+      <p>Reduce image size while keeping good quality.</p>
+      <button onclick="openCompressor()">Open Tool</button>
+    </div>
 
-<div class="tool">
-<div class="tool-icon">📝</div>
-<h3>Word Counter</h3>
-<p>Count words and characters instantly.</p>
-</div>
+    <div class="tool">
+      <div class="tool-icon">🔐</div>
+      <h3>Password Generator</h3>
+      <p>Create strong and secure passwords.</p>
+      <button onclick="openPassword()">Open Tool</button>
+    </div>
 
-</div>
+    <div class="tool">
+      <div class="tool-icon">📝</div>
+      <h3>Word Counter</h3>
+      <p>Count words and characters instantly.</p>
+      <button onclick="openWordCounter()">Open Tool</button>
+    </div>
 
-<div class="qr" id="qrTool">
-<h2>🔳 QR Code Generator</h2>
-<p>Enter text, a website link, phone number or anything else.</p>
+  </div>
 
-<input id="qrText" type="text" placeholder="Enter text or URL">
 
-<button onclick="generateQR()">Generate QR Code</button>
+  <!-- QR CODE TOOL -->
 
-<div id="qrcode"></div>
-</div>
-<div class="qr" id="compressorTool">
-<h2>🖼️ Image Compressor</h2>
-<p>Select an image and reduce its file size.</p>
+  <div class="tool-box" id="qrTool">
 
-<input type="file" id="imageInput" accept="image/*">
+    <h2>🔳 QR Code Generator</h2>
 
-<br><br>
+    <p>
+      Enter text, a website link, phone number or anything else.
+    </p>
 
-<label>Quality: <span id="qualityValue">70%</span></label>
-<input type="range" id="quality" min="10" max="100" value="70"
-oninput="qualityValue.textContent=this.value+'%'">
+    <input
+      id="qrText"
+      type="text"
+      placeholder="Enter text or URL"
+    >
 
-<br><br>
+    <button onclick="generateQR()">
+      Generate QR Code
+    </button>
 
-<button onclick="compressImage()">Compress Image</button>
+    <div id="qrcode"></div>
 
-<div id="compressionResult"></div>
-</div>
+  </div>
+
+
+  <!-- IMAGE COMPRESSOR -->
+
+  <div class="tool-box" id="compressorTool">
+
+    <h2>🖼️ Image Compressor</h2>
+
+    <p>
+      Select an image and reduce its file size.
+    </p>
+
+    <input
+      type="file"
+      id="imageInput"
+      accept="image/*"
+    >
+
+    <label>
+      Quality:
+      <span id="qualityValue">70%</span>
+    </label>
+
+    <input
+      type="range"
+      id="quality"
+      min="10"
+      max="100"
+      value="70"
+      oninput="document.getElementById('qualityValue').textContent=this.value+'%'"
+    >
+
+    <br>
+
+    <button onclick="compressImage()">
+      Compress Image
+    </button>
+
+    <div id="compressionResult"></div>
+
+  </div>
+
+
+  <!-- PASSWORD GENERATOR -->
+
+  <div class="tool-box" id="passwordTool">
+
+    <h2>🔐 Password Generator</h2>
+
+    <p>
+      Generate a strong random password.
+    </p>
+
+    <input
+      id="passwordResult"
+      type="text"
+      placeholder="Your password"
+      readonly
+    >
+
+    <button onclick="generatePassword()">
+      Generate Password
+    </button>
+
+  </div>
+
+
+  <!-- WORD COUNTER -->
+
+  <div class="tool-box" id="wordTool">
+
+    <h2>📝 Word Counter</h2>
+
+    <p>
+      Enter your text below.
+    </p>
+
+    <textarea
+      id="wordText"
+      placeholder="Type or paste your text here..."
+      oninput="countWords()"
+      style="width:100%;height:150px;margin:15px 0;padding:13px;border-radius:9px;border:1px solid #303b50;background:#0b0f19;color:white;outline:none;resize:vertical;"
+    ></textarea>
+
+    <p>
+      Words: <strong id="wordCount">0</strong>
+      &nbsp; | &nbsp;
+      Characters: <strong id="characterCount">0</strong>
+    </p>
+
+  </div>
+
 </section>
+
 
 <section class="section" id="categories">
-<h2 class="section-title">🧰 Tool Categories</h2>
 
-<div class="categories">
-<div class="category">▣ QR Tools</div>
-<div class="category">🖼️ Image Tools</div>
-<div class="category">📄 PDF Tools</div>
-<div class="category">📝 Text Tools</div>
-<div class="category">💻 Developer Tools</div>
-<div class="category">🔐 Security Tools</div>
-<div class="category">🔧 Utility Tools</div>
-</div>
+  <h2 class="section-title">🧰 Tool Categories</h2>
+
+  <div class="categories">
+
+    <div class="category">▣ QR Tools</div>
+    <div class="category">🖼️ Image Tools</div>
+    <div class="category">📄 PDF Tools</div>
+    <div class="category">📝 Text Tools</div>
+    <div class="category">💻 Developer Tools</div>
+    <div class="category">🔐 Security Tools</div>
+    <div class="category">🔧 Utility Tools</div>
+
+  </div>
+
 </section>
 
+
 <section class="cta">
-<h2>Find the Right Tool for Your Task.</h2>
-<p>Fast, simple and useful tools — all in one place.</p>
+
+  <h2>Find the Right Tool for Your Task.</h2>
+
+  <p>
+    Fast, simple and useful tools — all in one place.
+  </p>
+
 </section>
 
 </main>
 
+
 <footer>
-© 2026 Tool of Tools. All rights reserved.
+  © 2026 Tool of Tools. All rights reserved.
 </footer>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <script>
-function openQR(){
-document.getElementById("qrTool").style.display="block";
-document.getElementById("qrText").focus();
-document.getElementById("qrTool").scrollIntoView({behavior:"smooth"});
-}
 
-function generateQR(){
-const text=document.getElementById("qrText").value.trim();
-const box=document.getElementById("qrcode");
-
-box.innerHTML="";
-
-if(!text){
-alert("Please enter some text or a URL.");
-return;
-}
-
-new QRCode(box,{
-text:text,
-width:200,
-height:200
-});
-}
+/* SEARCH */
 
 function searchTools(){
-const query=document.getElementById("searchInput").value.toLowerCase();
-const tools=document.querySelectorAll(".tool");
-tools.forEach(tool=>{
-const text=tool.innerText.toLowerCase();
-tool.style.display=text.includes(query)?"block":"none";
-});
+
+  const query =
+    document.getElementById("searchInput").value.toLowerCase();
+
+  const tools =
+    document.querySelectorAll(".tool");
+
+  tools.forEach(function(tool){
+
+    const text =
+      tool.innerText.toLowerCase();
+
+    tool.style.display =
+      text.includes(query) ? "block" : "none";
+
+  });
+
 }
+
+
+/* QR CODE */
+
+function openQR(){
+
+  const box =
+    document.getElementById("qrTool");
+
+  box.style.display = "block";
+
+  box.scrollIntoView({
+    behavior:"smooth"
+  });
+
+  document.getElementById("qrText").focus();
+
+}
+
+
+function generateQR(){
+
+  const text =
+    document.getElementById("qrText").value.trim();
+
+  const box =
+    document.getElementById("qrcode");
+
+  box.innerHTML = "";
+
+  if(!text){
+
+    alert("Please enter some text or a URL.");
+
+    return;
+  }
+
+  new QRCode(box,{
+    text:text,
+    width:200,
+    height:200
+  });
+
+}
+
+
+/* IMAGE COMPRESSOR */
 
 function openCompressor(){
-const file=document.getElementById("imageInput").files[0];
 
-if(!file){
-alert("Please select an image first.");
-return;
+  const box =
+    document.getElementById("compressorTool");
+
+  box.style.display = "block";
+
+  box.scrollIntoView({
+    behavior:"smooth"
+  });
+
 }
 
-const quality=parseInt(document.getElementById("quality").value)/100;
-const img=new Image();
-const rereader=new FileReader();
 
-reader.onload=function(e){
-img.onload=function(){
+function compressImage(){
 
-const canvas=document.createElement("canvas");
-const ctx=canvas.getContext("2d");
+  const file =
+    document.getElementById("imageInput").files[0];
 
-canvas.width=img.width;
-canvas.height=img.height;
+  if(!file){
 
-ctx.drawImage(img,0,0);
+    alert("Please select an image first.");
 
-canvas.toBlob(function(blob){
+    return;
+  }
 
-const url=URL.createObjectURL(blob);
+  const quality =
+    parseInt(
+      document.getElementById("quality").value
+    ) / 100;
 
-document.getElementById("compressionResult").innerHTML=
-"<p>Original: "+(file.size/1024).toFixed(1)+" KB</p>"+
-"<p>Compressed: "+(blob.size/1024).toFixed(1)+" KB</p>"+
-"<br><a href='"+url+"' download='compressed-image.jpg'>"+
-"<button>Download Compressed Image</button>"+
-"</a>";
+  const img = new Image();
 
-},"image/jpeg",quality);
+  const reader = new FileReader();
 
-};
 
-img.src=e.target.result;
-};
+  reader.onload = function(event){
 
-reader.readAsDataURL(file);
+    img.onload = function(){
+
+      const canvas =
+        document.createElement("canvas");
+
+      const ctx =
+        canvas.getContext("2d");
+
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      ctx.drawImage(
+        img,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+
+      canvas.toBlob(function(blob){
+
+        if(!blob){
+
+          alert("Compression failed. Please try another image.");
+
+          return;
+        }
+
+        const url =
+          URL.createObjectURL(blob);
+
+        document.getElementById(
+          "compressionResult"
+        ).innerHTML =
+
+          "<p>Original: " +
+          (file.size / 1024).toFixed(1) +
+          " KB</p>" +
+
+          "<p>Compressed: " +
+          (blob.size / 1024).toFixed(1) +
+          " KB</p>" +
+
+          "<br>" +
+
+          "<a href='" +
+          url +
+          "' download='compressed-image.jpg'>" +
+
+          "<button>Download Compressed Image</button>" +
+
+          "</a>";
+
+      },"image/jpeg",quality);
+
+    };
+
+    img.src = event.target.result;
+
+  };
+
+
+  reader.readAsDataURL(file);
+
 }
+
+
+/* PASSWORD GENERATOR */
+
+function openPassword(){
+
+  const box =
+    document.getElementById("passwordTool");
+
+  box.style.display = "block";
+
+  box.scrollIntoView({
+    behavior:"smooth"
+  });
+
+  generatePassword();
+
+}
+
+
+function generatePassword(){
+
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+  let password = "";
+
+  for(let i = 0; i < 16; i++){
+
+    password +=
+      characters.charAt(
+        Math.floor(
+          Math.random() * characters.length
+        )
+      );
+
+  }
+
+  document.getElementById(
+    "passwordResult"
+  ).value = password;
+
+}
+
+
+/* WORD COUNTER */
+
+function openWordCounter(){
+
+  const box =
+    document.getElementById("wordTool");
+
+  box.style.display = "block";
+
+  box.scrollIntoView({
+    behavior:"smooth"
+  });
+
+  document.getElementById("wordText").focus();
+
+}
+
+
+function countWords(){
+
+  const text =
+    document.getElementById("wordText").value;
+
+  const words =
+    text.trim() === ""
+      ? 0
+      : text.trim().split(/\s+/).length;
+
+  const characters =
+    text.length;
+
+  document.getElementById(
+    "wordCount"
+  ).textContent = words;
+
+  document.getElementById(
+    "characterCount"
+  ).textContent = characters;
+
+}
+
 </script>
 
 </body>
