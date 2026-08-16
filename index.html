@@ -36,11 +36,12 @@ h1{font-size:clamp(42px,8vw,72px);line-height:1.05;letter-spacing:-2px;margin-bo
 .tool-box p{color:#929db0;font-size:14px}
 .tool-box input[type="text"],.tool-box input[type="file"],.tool-box input[type="number"]{width:100%;padding:13px;margin:15px 0;border-radius:9px;border:1px solid #303b50;background:#0b0f19;color:white;outline:none}
 .tool-box input[type="range"]{width:100%;margin:15px 0}
+.tool-box select{font-size:15px}
 .size-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 #qrcode{margin:20px auto;display:flex;justify-content:center}
-#compressionResult,#resizeResult{margin-top:20px}
-#compressionResult p,#resizeResult p{color:#dce2ed;margin:5px 0}
-#compressionResult a,#resizeResult a{text-decoration:none}
+#compressionResult,#resizeResult,#convertResult{margin-top:20px}
+#compressionResult p,#resizeResult p,#convertResult p{color:#dce2ed;margin:5px 0}
+#compressionResult a,#resizeResult a,#convertResult a{text-decoration:none}
 .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
 .category{background:#111725;border:1px solid #222c3e;padding:17px;border-radius:13px;text-align:center;color:#dce2ed}
 .cta{max-width:850px;margin:50px auto;text-align:center;padding:55px 20px;background:#111725;border:1px solid #252f43;border-radius:22px}
@@ -107,6 +108,13 @@ h1{letter-spacing:-1px}
 </div>
 
 <div class="tool">
+<div class="tool-icon">🔄</div>
+<h3>JPG ↔ PNG Converter</h3>
+<p>Convert images between JPG and PNG formats.</p>
+<button onclick="openConverter()">Open Tool</button>
+</div>
+
+<div class="tool">
 <div class="tool-icon">🔐</div>
 <h3>Password Generator</h3>
 <p>Create strong and secure passwords.</p>
@@ -166,6 +174,23 @@ h1{letter-spacing:-1px}
 <br><br>
 <button onclick="resizeImage()">Resize Image</button>
 <div id="resizeResult"></div>
+</div>
+
+<div class="tool-box" id="converterTool">
+<h2>🔄 JPG ↔ PNG Converter</h2>
+<p>Select an image and choose the format you want.</p>
+
+<input type="file" id="convertInput" accept="image/jpeg,image/png">
+
+<label>Convert to:</label>
+<select id="convertFormat" style="width:100%;padding:13px;margin:15px 0;border-radius:9px;border:1px solid #303b50;background:#0b0f19;color:white;outline:none;">
+<option value="image/png">PNG</option>
+<option value="image/jpeg">JPG</option>
+</select>
+
+<button onclick="convertImage()">Convert Image</button>
+
+<div id="convertResult"></div>
 </div>
 
 <div class="tool-box" id="passwordTool">
@@ -392,6 +417,67 @@ img.src=event.target.result;
 
 reader.readAsDataURL(file);
 }
+
+function openConverter(){
+showTool("converterTool");
+}
+
+function convertImage(){
+const file=document.getElementById("convertInput").files[0];
+
+if(!file){
+alert("Please select an image first.");
+return;
+}
+
+const format=document.getElementById("convertFormat").value;
+const extension=format==="image/png"?"png":"jpg";
+
+const img=new Image();
+const reader=new FileReader();
+
+reader.onload=function(event){
+img.onload=function(){
+
+const canvas=document.createElement("canvas");
+const ctx=canvas.getContext("2d");
+
+canvas.width=img.width;
+canvas.height=img.height;
+
+if(format==="image/jpeg"){
+ctx.fillStyle="#ffffff";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+}
+
+ctx.drawImage(img,0,0,canvas.width,canvas.height);
+
+canvas.toBlob(function(blob){
+
+if(!blob){
+alert("Conversion failed. Please try another image.");
+return;
+}
+
+const url=URL.createObjectURL(blob);
+
+document.getElementById("convertResult").innerHTML=
+"<p>Original: "+img.width+" × "+img.height+" px</p>"+
+"<p>New format: "+extension.toUpperCase()+"</p>"+
+"<p>New size: "+(blob.size/1024).toFixed(1)+" KB</p>"+
+"<br><a href='"+url+"' download='converted-image."+extension+"'>"+
+"<button>Download Converted Image</button></a>";
+
+},format,format==="image/jpeg"?0.92:undefined);
+
+};
+
+img.src=event.target.result;
+};
+
+reader.readAsDataURL(file);
+}
+
 
 function openPassword(){
 showTool("passwordTool");
