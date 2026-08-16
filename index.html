@@ -5,336 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Tool of Tools - Free Online Tools</title>
-<meta name="description" content="Tool of Tools - Fast, simple and useful online tools for everyday tasks.">
+<meta name="description" content="Tool of Tools - Fast, simple and useful free online tools for everyday tasks.">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  font-family:Arial,sans-serif;
-  background:#0b0f19;
-  color:#fff;
-  line-height:1.6;
-}
-
-header{
-  border-bottom:1px solid #202838;
-  background:#0b0f19;
-  position:sticky;
-  top:0;
-  z-index:100;
-}
-
-.nav{
-  max-width:1150px;
-  margin:auto;
-  padding:18px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  font-size:22px;
-  font-weight:800;
-}
-
-.logo span,
-h1 span{
-  color:#8b6cff;
-}
-
-.nav a{
-  color:#aeb7c8;
-  text-decoration:none;
-  font-size:14px;
-}
-
-.hero{
-  max-width:900px;
-  margin:auto;
-  text-align:center;
-  padding:75px 20px 50px;
-}
-
-.badge{
-  display:inline-block;
-  background:#151b2a;
-  border:1px solid #293247;
-  color:#aeb7c8;
-  padding:7px 13px;
-  border-radius:50px;
-  font-size:13px;
-  margin-bottom:22px;
-}
-
-h1{
-  font-size:clamp(42px,8vw,72px);
-  line-height:1.05;
-  letter-spacing:-2px;
-  margin-bottom:20px;
-}
-
-.hero p{
-  max-width:650px;
-  margin:auto;
-  color:#aeb7c8;
-  font-size:17px;
-}
-
-.search{
-  max-width:650px;
-  margin:35px auto 0;
-  display:flex;
-  background:#121827;
-  border:1px solid #2a3448;
-  border-radius:14px;
-  padding:6px;
-}
-
-.search input{
-  flex:1;
-  border:0;
-  outline:0;
-  background:transparent;
-  color:white;
-  padding:14px;
-  font-size:15px;
-}
-
-.search button,
-.tool button,
-.tool-box button{
-  border:0;
-  border-radius:10px;
-  background:#7657ff;
-  color:white;
-  padding:12px 22px;
-  cursor:pointer;
-  font-weight:700;
-}
-
-.search button:hover,
-.tool button:hover,
-.tool-box button:hover{
-  background:#8b6cff;
-}
-
-.section{
-  max-width:1150px;
-  margin:auto;
-  padding:40px 20px;
-}
-
-.section-title{
-  font-size:27px;
-  margin-bottom:22px;
-}
-
-.tools{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:15px;
-}
-
-.tool{
-  background:#111725;
-  border:1px solid #222c3e;
-  border-radius:16px;
-  padding:22px;
-  transition:.2s;
-}
-
-.tool:hover{
-  transform:translateY(-3px);
-  border-color:#7657ff;
-}
-
-.tool-icon{
-  font-size:28px;
-  margin-bottom:12px;
-}
-
-.tool h3{
-  font-size:17px;
-  margin-bottom:6px;
-}
-
-.tool p{
-  color:#8994a8;
-  font-size:13px;
-}
-
-.tool button{
-  margin-top:15px;
-  width:100%;
-  padding:10px;
-}
-
-.tool-box{
-  display:none;
-  max-width:650px;
-  margin:30px auto;
-  padding:25px;
-  background:#111725;
-  border:1px solid #252f43;
-  border-radius:18px;
-  text-align:center;
-}
-
-.tool-box h2{
-  margin-bottom:8px;
-}
-
-.tool-box p{
-  color:#929db0;
-  font-size:14px;
-}
-
-.tool-box input[type="text"],
-.tool-box input[type="file"],
-.tool-box input[type="number"]{
-  width:100%;
-  padding:13px;
-  margin:15px 0;
-  border-radius:9px;
-  border:1px solid #303b50;
-  background:#0b0f19;
-  color:white;
-  outline:none;
-}
-
-.tool-box textarea{
-  width:100%;
-  height:160px;
-  margin:15px 0;
-  padding:13px;
-  border-radius:9px;
-  border:1px solid #303b50;
-  background:#0b0f19;
-  color:white;
-  outline:none;
-  resize:vertical;
-  font-family:Arial,sans-serif;
-}
-
-.tool-box input[type="range"]{
-  width:100%;
-  margin:15px 0;
-}
-
-.tool-box select{
-  width:100%;
-  padding:13px;
-  margin:15px 0;
-  border-radius:9px;
-  border:1px solid #303b50;
-  background:#0b0f19;
-  color:white;
-  outline:none;
-}
-
-.size-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-#qrcode{
-  margin:20px auto;
-  display:flex;
-  justify-content:center;
-}
-
-#compressionResult,
-#resizeResult,
-#convertResult,
-#pdfResult{
-  margin-top:20px;
-}
-
-#compressionResult p,
-#resizeResult p,
-#convertResult p,
-#pdfResult p{
-  color:#dce2ed;
-  margin:5px 0;
-}
-
-#compressionResult a,
-#resizeResult a,
-#convertResult a,
-#pdfResult a{
-  text-decoration:none;
-}
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:12px;
-}
-
-.category{
-  background:#111725;
-  border:1px solid #222c3e;
-  padding:17px;
-  border-radius:13px;
-  text-align:center;
-  color:#dce2ed;
-}
-
-.cta{
-  max-width:850px;
-  margin:50px auto;
-  text-align:center;
-  padding:55px 20px;
-  background:#111725;
-  border:1px solid #252f43;
-  border-radius:22px;
-}
-
-.cta h2{
-  font-size:30px;
-  margin-bottom:10px;
-}
-
-.cta p{
-  color:#929db0;
-}
-
-footer{
-  border-top:1px solid #202838;
-  text-align:center;
-  padding:30px 20px;
-  color:#707b90;
-  font-size:13px;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#0b0f19;color:#fff;line-height:1.6}
+header{border-bottom:1px solid #202838;background:#0b0f19;position:sticky;top:0;z-index:100}
+.nav{max-width:1150px;margin:auto;padding:18px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:800}.logo span,h1 span{color:#8b6cff}
+.nav-links{display:flex;gap:18px}.nav a{color:#aeb7c8;text-decoration:none;font-size:14px}
+.nav a:hover{color:#fff}
+.hero{max-width:900px;margin:auto;text-align:center;padding:75px 20px 50px}
+.badge{display:inline-block;background:#151b2a;border:1px solid #293247;color:#aeb7c8;padding:7px 13px;border-radius:50px;font-size:13px;margin-bottom:22px}
+h1{font-size:clamp(42px,8vw,72px);line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
+.hero p{max-width:650px;margin:auto;color:#aeb7c8;font-size:17px}
+.search{max-width:650px;margin:35px auto 0;display:flex;background:#121827;border:1px solid #2a3448;border-radius:14px;padding:6px}
+.search input{flex:1;border:0;outline:0;background:transparent;color:white;padding:14px;font-size:15px}
+.search button,.tool button,.tool-box button,.primary-btn{border:0;border-radius:10px;background:#7657ff;color:white;padding:12px 22px;cursor:pointer;font-weight:700}
+.search button:hover,.tool button:hover,.tool-box button:hover,.primary-btn:hover{background:#8b6cff}
+.section{max-width:1150px;margin:auto;padding:40px 20px}
+.section-title{font-size:27px;margin-bottom:22px}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.tool{background:#111725;border:1px solid #222c3e;border-radius:16px;padding:22px;transition:.2s}
+.tool:hover{transform:translateY(-3px);border-color:#7657ff}
+.tool-icon{font-size:28px;margin-bottom:12px}.tool h3{font-size:17px;margin-bottom:6px}.tool p{color:#8994a8;font-size:13px}
+.tool button{margin-top:15px;width:100%;padding:10px}
+.tool-box{display:none;max-width:650px;margin:30px auto;padding:25px;background:#111725;border:1px solid #252f43;border-radius:18px;text-align:center}
+.tool-box h2{margin-bottom:8px}.tool-box p{color:#929db0;font-size:14px}
+.tool-box input[type="text"],.tool-box input[type="file"],.tool-box input[type="number"],.tool-box textarea,.tool-box select{width:100%;padding:13px;margin:15px 0;border-radius:9px;border:1px solid #303b50;background:#0b0f19;color:white;outline:none}
+.tool-box textarea{height:160px;resize:vertical;font-family:Arial,sans-serif}
+.tool-box input[type="range"]{width:100%;margin:15px 0}
+.size-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#qrcode{margin:20px auto;display:flex;justify-content:center}
+#compressionResult,#resizeResult,#convertResult,#pdfResult,#textPDFResult{margin-top:20px}
+#compressionResult p,#resizeResult p,#convertResult p,#pdfResult p,#textPDFResult p{color:#dce2ed;margin:5px 0}
+#compressionResult a,#resizeResult a,#convertResult a,#pdfResult a,#textPDFResult a{text-decoration:none}
+.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.category{background:#111725;border:1px solid #222c3e;padding:17px;border-radius:13px;text-align:center;color:#dce2ed}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.info-card{background:#111725;border:1px solid #222c3e;border-radius:16px;padding:24px}
+.info-card h3{margin-bottom:8px}.info-card p{color:#929db0;font-size:14px}
+.info-card a{color:#8b6cff;text-decoration:none}
+.cta{max-width:850px;margin:50px auto;text-align:center;padding:55px 20px;background:#111725;border:1px solid #252f43;border-radius:22px}
+.cta h2{font-size:30px;margin-bottom:10px}.cta p{color:#929db0}
+footer{border-top:1px solid #202838;text-align:center;padding:30px 20px;color:#707b90;font-size:13px}
+footer a{color:#8b6cff;text-decoration:none;margin:0 8px}
+footer a:hover{color:#fff}
 @media(max-width:600px){
-
-  .nav a{
-    display:none;
-  }
-
-  .hero{
-    padding-top:55px;
-  }
-
-  .search button{
-    padding:0 15px;
-  }
-
-  h1{
-    letter-spacing:-1px;
-  }
-
-  .size-row{
-    grid-template-columns:1fr;
-  }
+.nav-links{display:none}.hero{padding-top:55px}.search button{padding:0 15px}h1{letter-spacing:-1px}.size-row{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -344,1133 +63,318 @@ footer{
 <header>
 <div class="nav">
 <div class="logo">Tool <span>of Tools</span></div>
+<div class="nav-links">
 <a href="#categories">Categories</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
 </div>
 </header>
 
 <main>
 
 <section class="hero">
-
 <div class="badge">⚡ Fast • Simple • Free</div>
-
-<h1>
-Every Tool You Need.<br>
-<span>One Place.</span>
-</h1>
-
-<p>
-Powerful, fast and easy-to-use online tools for everyday tasks.
-No complicated software. Just choose a tool and get things done.
-</p>
-
+<h1>Every Tool You Need.<br><span>One Place.</span></h1>
+<p>Powerful, fast and easy-to-use online tools for everyday tasks. No complicated software. Just choose a tool and get things done.</p>
 <div class="search">
-<input
-id="searchInput"
-type="text"
-placeholder="Search for a tool..."
-oninput="searchTools()"
->
-
+<input id="searchInput" type="text" placeholder="Search for a tool..." oninput="searchTools()">
 <button onclick="searchTools()">Search</button>
 </div>
-
 </section>
 
-
 <section class="section">
-
 <h2 class="section-title">⭐ Popular Tools</h2>
 
 <div class="tools">
 
+<div class="tool"><div class="tool-icon">▣</div><h3>QR Code Generator</h3><p>Create QR codes from any text or link.</p><button onclick="openQR()">Open Tool</button></div>
 
-<div class="tool">
-<div class="tool-icon">▣</div>
-<h3>QR Code Generator</h3>
-<p>Create QR codes from any text or link.</p>
-<button onclick="openQR()">Open Tool</button>
-</div>
+<div class="tool"><div class="tool-icon">🖼️</div><h3>Image Compressor</h3><p>Reduce image size while keeping good quality.</p><button onclick="openCompressor()">Open Tool</button></div>
 
+<div class="tool"><div class="tool-icon">📐</div><h3>Image Resizer</h3><p>Resize images to your desired width and height.</p><button onclick="openResizer()">Open Tool</button></div>
 
-<div class="tool">
-<div class="tool-icon">🖼️</div>
-<h3>Image Compressor</h3>
-<p>Reduce image size while keeping good quality.</p>
-<button onclick="openCompressor()">Open Tool</button>
-</div>
+<div class="tool"><div class="tool-icon">🔄</div><h3>JPG ↔ PNG Converter</h3><p>Convert images between JPG and PNG formats.</p><button onclick="openConverter()">Open Tool</button></div>
 
+<div class="tool"><div class="tool-icon">📄</div><h3>Image to PDF</h3><p>Convert an image into a downloadable PDF file.</p><button onclick="openImagePDF()">Open Tool</button></div>
 
-<div class="tool">
-<div class="tool-icon">📐</div>
-<h3>Image Resizer</h3>
-<p>Resize images to your desired width and height.</p>
-<button onclick="openResizer()">Open Tool</button>
-</div>
+<div class="tool"><div class="tool-icon">📝</div><h3>Text to PDF</h3><p>Turn your text into a clean PDF document.</p><button onclick="openTextPDF()">Open Tool</button></div>
 
+<div class="tool"><div class="tool-icon">🔐</div><h3>Password Generator</h3><p>Create strong and secure passwords.</p><button onclick="openPassword()">Open Tool</button></div>
 
-<div class="tool">
-<div class="tool-icon">🔄</div>
-<h3>JPG ↔ PNG Converter</h3>
-<p>Convert images between JPG and PNG formats.</p>
-<button onclick="openConverter()">Open Tool</button>
-</div>
-
-
-<div class="tool">
-<div class="tool-icon">📄</div>
-<h3>Image to PDF</h3>
-<p>Convert an image into a downloadable PDF file.</p>
-<button onclick="openImagePDF()">Open Tool</button>
-</div>
-
-
-<div class="tool">
-<div class="tool-icon">📝</div>
-<h3>Text to PDF</h3>
-<p>Turn your text into a clean PDF document.</p>
-<button onclick="openTextPDF()">Open Tool</button>
-</div>
-
-
-<div class="tool">
-<div class="tool-icon">🔐</div>
-<h3>Password Generator</h3>
-<p>Create strong and secure passwords.</p>
-<button onclick="openPassword()">Open Tool</button>
-</div>
-
-
-<div class="tool">
-<div class="tool-icon">🔤</div>
-<h3>Word Counter</h3>
-<p>Count words and characters instantly.</p>
-<button onclick="openWordCounter()">Open Tool</button>
-</div>
+<div class="tool"><div class="tool-icon">🔤</div><h3>Word Counter</h3><p>Count words and characters instantly.</p><button onclick="openWordCounter()">Open Tool</button></div>
 
 </div>
-
-
-<!-- QR CODE -->
 
 <div class="tool-box" id="qrTool">
-
-<h2>🔳 QR Code Generator</h2>
-
-<p>
-Enter text, a website link, phone number or anything else.
-</p>
-
-<input
-id="qrText"
-type="text"
-placeholder="Enter text or URL"
->
-
-<button onclick="generateQR()">
-Generate QR Code
-</button>
-
-<div id="qrcode"></div>
-
+<h2>🔳 QR Code Generator</h2><p>Enter text, a website link, phone number or anything else.</p>
+<input id="qrText" type="text" placeholder="Enter text or URL">
+<button onclick="generateQR()">Generate QR Code</button><div id="qrcode"></div>
 </div>
-
-
-<!-- IMAGE COMPRESSOR -->
 
 <div class="tool-box" id="compressorTool">
-
-<h2>🖼️ Image Compressor</h2>
-
-<p>Select an image and reduce its file size.</p>
-
-<input
-type="file"
-id="imageInput"
-accept="image/*"
->
-
-<label>
-Quality:
-<span id="qualityValue">70%</span>
-</label>
-
-<input
-type="range"
-id="quality"
-min="10"
-max="100"
-value="70"
-oninput="document.getElementById('qualityValue').textContent=this.value+'%'"
->
-
-<br>
-
-<button onclick="compressImage()">
-Compress Image
-</button>
-
-<div id="compressionResult"></div>
-
+<h2>🖼️ Image Compressor</h2><p>Select an image and reduce its file size.</p>
+<input type="file" id="imageInput" accept="image/*">
+<label>Quality: <span id="qualityValue">70%</span></label>
+<input type="range" id="quality" min="10" max="100" value="70" oninput="document.getElementById('qualityValue').textContent=this.value+'%'">
+<br><button onclick="compressImage()">Compress Image</button><div id="compressionResult"></div>
 </div>
-
-
-<!-- IMAGE RESIZER -->
 
 <div class="tool-box" id="resizerTool">
-
-<h2>📐 Image Resizer</h2>
-
-<p>Select an image and choose the new size.</p>
-
-<input
-type="file"
-id="resizeInput"
-accept="image/*"
->
-
+<h2>📐 Image Resizer</h2><p>Select an image and choose the new size.</p>
+<input type="file" id="resizeInput" accept="image/*">
 <div class="size-row">
-
-<div>
-<label>Width (px)</label>
-
-<input
-type="number"
-id="resizeWidth"
-min="1"
-placeholder="Width"
->
+<div><label>Width (px)</label><input type="number" id="resizeWidth" min="1" placeholder="Width"></div>
+<div><label>Height (px)</label><input type="number" id="resizeHeight" min="1" placeholder="Height"></div>
 </div>
-
-<div>
-<label>Height (px)</label>
-
-<input
-type="number"
-id="resizeHeight"
-min="1"
-placeholder="Height"
->
+<label><input type="checkbox" id="keepRatio" checked> Keep aspect ratio</label><br><br>
+<button onclick="resizeImage()">Resize Image</button><div id="resizeResult"></div>
 </div>
-
-</div>
-
-<label>
-<input
-type="checkbox"
-id="keepRatio"
-checked
->
-Keep aspect ratio
-</label>
-
-<br><br>
-
-<button onclick="resizeImage()">
-Resize Image
-</button>
-
-<div id="resizeResult"></div>
-
-</div>
-
-
-<!-- JPG PNG CONVERTER -->
 
 <div class="tool-box" id="converterTool">
-
-<h2>🔄 JPG ↔ PNG Converter</h2>
-
-<p>Select an image and choose the format.</p>
-
-<input
-type="file"
-id="convertInput"
-accept="image/jpeg,image/png"
->
-
+<h2>🔄 JPG ↔ PNG Converter</h2><p>Select an image and choose the format.</p>
+<input type="file" id="convertInput" accept="image/jpeg,image/png">
 <label>Convert to:</label>
-
-<select id="convertFormat">
-
-<option value="image/png">
-PNG
-</option>
-
-<option value="image/jpeg">
-JPG
-</option>
-
-</select>
-
-<button onclick="convertImage()">
-Convert Image
-</button>
-
-<div id="convertResult"></div>
-
+<select id="convertFormat"><option value="image/png">PNG</option><option value="image/jpeg">JPG</option></select>
+<button onclick="convertImage()">Convert Image</button><div id="convertResult"></div>
 </div>
-
-
-<!-- IMAGE TO PDF -->
 
 <div class="tool-box" id="imagePDFTool">
-
-<h2>📄 Image to PDF</h2>
-
-<p>Select an image and convert it into a PDF.</p>
-
-<input
-type="file"
-id="pdfImageInput"
-accept="image/*"
->
-
-<button onclick="imageToPDF()">
-Create PDF
-</button>
-
-<div id="pdfResult"></div>
-
+<h2>📄 Image to PDF</h2><p>Select an image and convert it into a PDF.</p>
+<input type="file" id="pdfImageInput" accept="image/*">
+<button onclick="imageToPDF()">Create PDF</button><div id="pdfResult"></div>
 </div>
-
-
-<!-- TEXT TO PDF -->
 
 <div class="tool-box" id="textPDFTool">
-
-<h2>📝 Text to PDF</h2>
-
-<p>Enter your text and create a PDF document.</p>
-
-<textarea
-id="pdfText"
-placeholder="Type or paste your text here..."
-></textarea>
-
-<button onclick="textToPDF()">
-Create PDF
-</button>
-
-<div id="textPDFResult"></div>
-
+<h2>📝 Text to PDF</h2><p>Enter your text and create a PDF document.</p>
+<textarea id="pdfText" placeholder="Type or paste your text here..."></textarea>
+<button onclick="textToPDF()">Create PDF</button><div id="textPDFResult"></div>
 </div>
-
-
-<!-- PASSWORD -->
 
 <div class="tool-box" id="passwordTool">
-
-<h2>🔐 Password Generator</h2>
-
-<p>Generate a strong random password.</p>
-
-<input
-id="passwordResult"
-type="text"
-placeholder="Your password"
-readonly
->
-
-<button onclick="generatePassword()">
-Generate Password
-</button>
-
+<h2>🔐 Password Generator</h2><p>Generate a strong random password.</p>
+<input id="passwordResult" type="text" placeholder="Your password" readonly>
+<button onclick="generatePassword()">Generate Password</button>
 </div>
-
-
-<!-- WORD COUNTER -->
 
 <div class="tool-box" id="wordTool">
-
-<h2>🔤 Word Counter</h2>
-
-<p>Enter your text below.</p>
-
-<textarea
-id="wordText"
-placeholder="Type or paste your text here..."
-oninput="countWords()"
-></textarea>
-
-<p>
-Words:
-<strong id="wordCount">0</strong>
-
-&nbsp; | &nbsp;
-
-Characters:
-<strong id="characterCount">0</strong>
-</p>
-
+<h2>🔤 Word Counter</h2><p>Enter your text below.</p>
+<textarea id="wordText" placeholder="Type or paste your text here..." oninput="countWords()"></textarea>
+<p>Words: <strong id="wordCount">0</strong> &nbsp; | &nbsp; Characters: <strong id="characterCount">0</strong></p>
 </div>
 
 </section>
 
-
-<!-- CATEGORIES -->
-
-<section
-class="section"
-id="categories"
->
-
-<h2 class="section-title">
-🧰 Tool Categories
-</h2>
-
+<section class="section" id="categories">
+<h2 class="section-title">🧰 Tool Categories</h2>
 <div class="categories">
-
-<div class="category">▣ QR Tools</div>
-
-<div class="category">🖼️ Image Tools</div>
-
-<div class="category">📄 PDF Tools</div>
-
-<div class="category">📝 Text Tools</div>
-
-<div class="category">💻 Developer Tools</div>
-
-<div class="category">🔐 Security Tools</div>
-
-<div class="category">🔧 Utility Tools</div>
-
+<div class="category">▣ QR Tools</div><div class="category">🖼️ Image Tools</div><div class="category">📄 PDF Tools</div>
+<div class="category">📝 Text Tools</div><div class="category">💻 Developer Tools</div><div class="category">🔐 Security Tools</div><div class="category">🔧 Utility Tools</div>
 </div>
-
 </section>
 
+<section class="section" id="about">
+<h2 class="section-title">ℹ️ About Tool of Tools</h2>
+<div class="info-grid">
+<div class="info-card"><h3>Simple</h3><p>Tool of Tools brings useful everyday utilities together in one clean and easy-to-use website.</p></div>
+<div class="info-card"><h3>Fast</h3><p>Many tools work directly in your browser, helping you complete common tasks without installing complicated software.</p></div>
+<div class="info-card"><h3>Free</h3><p>Our goal is to provide useful online tools that are simple, accessible and free to use.</p></div>
+</div>
+</section>
+
+<section class="section" id="privacy">
+<h2 class="section-title">🔒 Privacy Policy</h2>
+<div class="info-card">
+<p>Tool of Tools is designed to provide simple browser-based utilities. Where a tool processes a file, the processing is intended to happen in your browser and the selected file is not intentionally uploaded to our server by these tools.</p>
+<br>
+<p>We do not ask you to enter passwords, payment information or other sensitive personal information into the tools. External libraries used by some features may be loaded from third-party content delivery networks.</p>
+<br>
+<p>This website may later use advertising, analytics or other third-party services. If those services are added, this policy should be updated to explain what data they collect and how it is used.</p>
+</div>
+</section>
+
+<section class="section" id="contact">
+<h2 class="section-title">📩 Contact</h2>
+<div class="info-card">
+<h3>Get in touch</h3>
+<p>If you have a suggestion, find a problem with a tool, or want to contact the website owner, please use the contact method provided by the website owner.</p>
+<br>
+<p><strong>Contact email:</strong> <span style="color:#8b6cff">Add your email address here</span></p>
+</div>
+</section>
 
 <section class="cta">
-
-<h2>
-Find the Right Tool for Your Task.
-</h2>
-
-<p>
-Fast, simple and useful tools — all in one place.
-</p>
-
+<h2>Find the Right Tool for Your Task.</h2>
+<p>Fast, simple and useful tools — all in one place.</p>
 </section>
 
 </main>
 
-
 <footer>
-© 2026 Tool of Tools. All rights reserved.
+<div>© 2026 Tool of Tools. All rights reserved.</div>
+<div style="margin-top:10px">
+<a href="#about">About</a>
+<a href="#privacy">Privacy Policy</a>
+<a href="#contact">Contact</a>
+<a href="#categories">Categories</a>
+</div>
 </footer>
 
-
-<!-- LIBRARIES -->
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-
 <script>
-
-/* SEARCH */
-
 function searchTools(){
-
-const query =
-document.getElementById("searchInput")
-.value
-.toLowerCase()
-.trim();
-
-const tools =
-document.querySelectorAll(".tool");
-
-tools.forEach(function(tool){
-
-const text =
-tool.innerText.toLowerCase();
-
-tool.style.display =
-text.includes(query)
-? "block"
-: "none";
-
+const query=document.getElementById("searchInput").value.toLowerCase().trim();
+document.querySelectorAll(".tool").forEach(function(tool){
+tool.style.display=tool.innerText.toLowerCase().includes(query)?"block":"none";
 });
-
 }
-
-
-/* SHOW TOOL */
 
 function hideAllTools(){
-
-document
-.querySelectorAll(".tool-box")
-.forEach(function(box){
-
-box.style.display="none";
-
-});
-
+document.querySelectorAll(".tool-box").forEach(function(box){box.style.display="none";});
 }
-
 
 function showTool(id){
-
 hideAllTools();
-
-const box =
-document.getElementById(id);
-
+const box=document.getElementById(id);
 box.style.display="block";
-
-box.scrollIntoView({
-behavior:"smooth",
-block:"center"
-});
-
+box.scrollIntoView({behavior:"smooth",block:"center"});
 }
 
-
-/* QR */
-
-function openQR(){
-
-showTool("qrTool");
-
-document
-.getElementById("qrText")
-.focus();
-
-}
-
-
+function openQR(){showTool("qrTool");document.getElementById("qrText").focus()}
 function generateQR(){
-
-const text =
-document
-.getElementById("qrText")
-.value
-.trim();
-
-const box =
-document.getElementById("qrcode");
-
+const text=document.getElementById("qrText").value.trim(),box=document.getElementById("qrcode");
 box.innerHTML="";
-
-if(!text){
-
-alert("Please enter some text or a URL.");
-
-return;
-
+if(!text){alert("Please enter some text or a URL.");return}
+if(typeof QRCode==="undefined"){alert("QR Code library could not load. Please check your internet connection.");return}
+new QRCode(box,{text:text,width:200,height:200});
 }
 
-new QRCode(box,{
-
-text:text,
-width:200,
-height:200
-
-});
-
-}
-
-
-/* COMPRESSOR */
-
-function openCompressor(){
-
-showTool("compressorTool");
-
-}
-
-
+function openCompressor(){showTool("compressorTool")}
 function compressImage(){
-
-const file =
-document
-.getElementById("imageInput")
-.files[0];
-
-if(!file){
-
-alert("Please select an image first.");
-
-return;
-
-}
-
-const quality =
-parseInt(
-document.getElementById("quality").value
-)/100;
-
-const img =
-new Image();
-
-const reader =
-new FileReader();
-
-reader.onload=function(event){
-
+const file=document.getElementById("imageInput").files[0];
+if(!file){alert("Please select an image first.");return}
+const quality=parseInt(document.getElementById("quality").value)/100,img=new Image(),reader=new FileReader();
+reader.onload=function(e){
 img.onload=function(){
-
-const canvas =
-document.createElement("canvas");
-
-const ctx =
-canvas.getContext("2d");
-
-canvas.width=img.width;
-canvas.height=img.height;
-
-ctx.drawImage(
-img,
-0,
-0,
-canvas.width,
-canvas.height
-);
-
+const canvas=document.createElement("canvas"),ctx=canvas.getContext("2d");
+canvas.width=img.width;canvas.height=img.height;ctx.drawImage(img,0,0);
 canvas.toBlob(function(blob){
-
-if(!blob){
-
-alert("Compression failed.");
-
-return;
-
-}
-
-const url =
-URL.createObjectURL(blob);
-
-document.getElementById(
-"compressionResult"
-).innerHTML=
-
-"<p>Original: "+
-(file.size/1024).toFixed(1)+
-" KB</p>"+
-
-"<p>Compressed: "+
-(blob.size/1024).toFixed(1)+
-" KB</p>"+
-
-"<br>"+
-
-"<a href='"+url+
-"' download='compressed-image.jpg'>"+
-
-"<button>Download Compressed Image</button>"+
-
-"</a>";
-
+if(!blob){alert("Compression failed.");return}
+const url=URL.createObjectURL(blob);
+document.getElementById("compressionResult").innerHTML="<p>Original: "+(file.size/1024).toFixed(1)+" KB</p><p>Compressed: "+(blob.size/1024).toFixed(1)+" KB</p><br><a href='"+url+"' download='compressed-image.jpg'><button>Download Compressed Image</button></a>";
 },"image/jpeg",quality);
-
-};
-
-img.src=event.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
+};img.src=e.target.result;
+};reader.readAsDataURL(file);
 }
 
-
-/* RESIZER */
-
-function openResizer(){
-
-showTool("resizerTool");
-
-}
-
-
-document
-.getElementById("resizeInput")
-.addEventListener("change",function(){
-
-const file=this.files[0];
-
-if(!file)return;
-
-const img=new Image();
-const reader=new FileReader();
-
-reader.onload=function(event){
-
-img.onload=function(){
-
-document.getElementById(
-"resizeWidth"
-).value=img.width;
-
-document.getElementById(
-"resizeHeight"
-).value=img.height;
-
-};
-
-img.src=event.target.result;
-
-};
-
+function openResizer(){showTool("resizerTool")}
+document.getElementById("resizeInput").addEventListener("change",function(){
+const file=this.files[0];if(!file)return;
+const img=new Image(),reader=new FileReader();
+reader.onload=function(e){img.onload=function(){document.getElementById("resizeWidth").value=img.width;document.getElementById("resizeHeight").value=img.height};img.src=e.target.result};
 reader.readAsDataURL(file);
-
 });
 
+document.getElementById("resizeWidth").addEventListener("input",function(){
+if(!document.getElementById("keepRatio").checked)return;
+const file=document.getElementById("resizeInput").files[0];if(!file)return;
+const newWidth=parseInt(this.value);if(!newWidth||newWidth<1)return;
+const img=new Image(),reader=new FileReader();
+reader.onload=function(e){img.onload=function(){document.getElementById("resizeHeight").value=Math.round(newWidth*(img.height/img.width))};img.src=e.target.result};
+reader.readAsDataURL(file);
+});
 
 function resizeImage(){
-
-const file =
-document.getElementById("resizeInput")
-.files[0];
-
-if(!file){
-
-alert("Please select an image first.");
-
-return;
-
-}
-
-const width =
-parseInt(
-document.getElementById("resizeWidth").value
-);
-
-const height =
-parseInt(
-document.getElementById("resizeHeight").value
-);
-
-if(!width || !height || width<1 || height<1){
-
-alert("Please enter a valid width and height.");
-
-return;
-
-}
-
-const img=new Image();
-const reader=new FileReader();
-
-reader.onload=function(event){
-
+const file=document.getElementById("resizeInput").files[0];
+if(!file){alert("Please select an image first.");return}
+const width=parseInt(document.getElementById("resizeWidth").value),height=parseInt(document.getElementById("resizeHeight").value);
+if(!width||!height||width<1||height<1){alert("Please enter a valid width and height.");return}
+const img=new Image(),reader=new FileReader();
+reader.onload=function(e){
 img.onload=function(){
-
-const canvas =
-document.createElement("canvas");
-
-const ctx =
-canvas.getContext("2d");
-
-canvas.width=width;
-canvas.height=height;
-
-ctx.drawImage(
-img,
-0,
-0,
-width,
-height
-);
-
+const canvas=document.createElement("canvas"),ctx=canvas.getContext("2d");
+canvas.width=width;canvas.height=height;ctx.drawImage(img,0,0,width,height);
 canvas.toBlob(function(blob){
-
-if(!blob){
-
-alert("Resize failed.");
-
-return;
-
-}
-
-const url =
-URL.createObjectURL(blob);
-
-document.getElementById(
-"resizeResult"
-).innerHTML=
-
-"<p>Original: "+
-img.width+
-" × "+
-img.height+
-" px</p>"+
-
-"<p>New size: "+
-width+
-" × "+
-height+
-" px</p>"+
-
-"<br>"+
-
-"<a href='"+url+
-"' download='resized-image.jpg'>"+
-
-"<button>Download Resized Image</button>"+
-
-"</a>";
-
+if(!blob){alert("Resize failed.");return}
+const url=URL.createObjectURL(blob);
+document.getElementById("resizeResult").innerHTML="<p>Original: "+img.width+" × "+img.height+" px</p><p>New size: "+width+" × "+height+" px</p><br><a href='"+url+"' download='resized-image.jpg'><button>Download Resized Image</button></a>";
 },"image/jpeg",0.92);
-
-};
-
-img.src=event.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
+};img.src=e.target.result;
+};reader.readAsDataURL(file);
 }
 
-
-/* CONVERTER */
-
-function openConverter(){
-
-showTool("converterTool");
-
-}
-
-
+function openConverter(){showTool("converterTool")}
 function convertImage(){
-
-const file =
-document.getElementById("convertInput")
-.files[0];
-
-if(!file){
-
-alert("Please select an image first.");
-
-return;
-
-}
-
-const format =
-document.getElementById("convertFormat")
-.value;
-
-const extension =
-format==="image/png"
-? "png"
-: "jpg";
-
-const img=new Image();
-const reader=new FileReader();
-
-reader.onload=function(event){
-
+const file=document.getElementById("convertInput").files[0];
+if(!file){alert("Please select an image first.");return}
+const format=document.getElementById("convertFormat").value,extension=format==="image/png"?"png":"jpg",img=new Image(),reader=new FileReader();
+reader.onload=function(e){
 img.onload=function(){
-
-const canvas =
-document.createElement("canvas");
-
-const ctx =
-canvas.getContext("2d");
-
-canvas.width=img.width;
-canvas.height=img.height;
-
-if(format==="image/jpeg"){
-
-ctx.fillStyle="#ffffff";
-
-ctx.fillRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
-
-}
-
-ctx.drawImage(
-img,
-0,
-0,
-canvas.width,
-canvas.height
-);
-
+const canvas=document.createElement("canvas"),ctx=canvas.getContext("2d");
+canvas.width=img.width;canvas.height=img.height;
+if(format==="image/jpeg"){ctx.fillStyle="#fff";ctx.fillRect(0,0,canvas.width,canvas.height)}
+ctx.drawImage(img,0,0);
 canvas.toBlob(function(blob){
-
-if(!blob){
-
-alert("Conversion failed.");
-
-return;
-
+if(!blob){alert("Conversion failed.");return}
+const url=URL.createObjectURL(blob);
+document.getElementById("convertResult").innerHTML="<p>Original: "+img.width+" × "+img.height+" px</p><p>New format: "+extension.toUpperCase()+"</p><p>New size: "+(blob.size/1024).toFixed(1)+" KB</p><br><a href='"+url+"' download='converted-image."+extension+"'><button>Download Converted Image</button></a>";
+},format,format==="image/jpeg"?0.92:undefined);
+};img.src=e.target.result;
+};reader.readAsDataURL(file);
 }
 
-const url =
-URL.createObjectURL(blob);
-
-document.getElementById(
-"convertResult"
-).innerHTML=
-
-"<p>Original: "+
-img.width+
-" × "+
-img.height+
-" px</p>"+
-
-"<p>New format: "+
-extension.toUpperCase()+
-"</p>"+
-
-"<p>New size: "+
-(blob.size/1024).toFixed(1)+
-" KB</p>"+
-
-"<br>"+
-
-"<a href='"+url+
-"' download='converted-image."+
-extension+
-"'>"+
-
-"<button>Download Converted Image</button>"+
-
-"</a>";
-
-},
-format,
-format==="image/jpeg"
-? 0.92
-: undefined
-);
-
-};
-
-img.src=event.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
-
-/* IMAGE TO PDF */
-
-function openImagePDF(){
-
-showTool("imagePDFTool");
-
-}
-
-
+function openImagePDF(){showTool("imagePDFTool")}
 function imageToPDF(){
-
-const file =
-document.getElementById("pdfImageInput")
-.files[0];
-
-if(!file){
-
-alert("Please select an image first.");
-
-return;
-
-}
-
-const reader =
-new FileReader();
-
-reader.onload=function(event){
-
+const file=document.getElementById("pdfImageInput").files[0];
+if(!file){alert("Please select an image first.");return}
+if(!window.jspdf){alert("PDF library could not load. Please check your internet connection.");return}
+const reader=new FileReader();
+reader.onload=function(e){
 const img=new Image();
-
 img.onload=function(){
-
-const jsPDF =
-window.jspdf.jsPDF;
-
-const pdf =
-new jsPDF({
-orientation:
-img.width > img.height
-? "landscape"
-: "portrait",
-unit:"px",
-format:[img.width,img.height]
-});
-
-pdf.addImage(
-event.target.result,
-"JPEG",
-0,
-0,
-img.width,
-img.height
-);
-
+const jsPDF=window.jspdf.jsPDF;
+const maxW=170,maxH=250,ratio=Math.min(maxW/img.width,maxH/img.height),w=img.width*ratio,h=img.height*ratio;
+const pdf=new jsPDF({orientation:w>h?"landscape":"portrait",unit:"mm",format:"a4"});
+const x=(210-w)/2,y=(297-h)/2;
+pdf.addImage(e.target.result,file.type==="image/png"?"PNG":"JPEG",x,y,w,h);
 pdf.save("tool-of-tools-image.pdf");
-
-document.getElementById(
-"pdfResult"
-).innerHTML=
-
-"<p>✅ PDF created successfully.</p>";
-
-};
-
-img.src=event.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
+document.getElementById("pdfResult").innerHTML="<p>✅ PDF created successfully. Check your downloads.</p>";
+};img.src=e.target.result;
+};reader.readAsDataURL(file);
 }
 
-
-/* TEXT TO PDF */
-
-function openTextPDF(){
-
-showTool("textPDFTool");
-
-document
-.getElementById("pdfText")
-.focus();
-
-}
-
-
+function openTextPDF(){showTool("textPDFTool");document.getElementById("pdfText").focus()}
 function textToPDF(){
-
-const text =
-document.getElementById("pdfText")
-.value.trim();
-
-if(!text){
-
-alert("Please enter some text first.");
-
-return;
-
-}
-
-const jsPDF =
-window.jspdf.jsPDF;
-
-const pdf =
-new jsPDF();
-
-const lines =
-pdf.splitTextToSize(
-text,
-170
-);
-
-let y=20;
-
-lines.forEach(function(line){
-
-if(y>280){
-
-pdf.addPage();
-
-y=20;
-
-}
-
-pdf.text(line,20,y);
-
-y+=8;
-
-});
-
+const text=document.getElementById("pdfText").value.trim();
+if(!text){alert("Please enter some text first.");return}
+if(!window.jspdf){alert("PDF library could not load. Please check your internet connection.");return}
+const pdf=new window.jspdf.jsPDF(),lines=pdf.splitTextToSize(text,170);let y=20;
+lines.forEach(function(line){if(y>280){pdf.addPage();y=20}pdf.text(line,20,y);y+=8});
 pdf.save("tool-of-tools-text.pdf");
-
-document.getElementById(
-"textPDFResult"
-).innerHTML=
-
-"<p>✅ PDF created successfully.</p>";
-
+document.getElementById("textPDFResult").innerHTML="<p>✅ PDF created successfully. Check your downloads.</p>";
 }
 
-
-/* PASSWORD */
-
-function openPassword(){
-
-showTool("passwordTool");
-
-generatePassword();
-
-}
-
-
+function openPassword(){showTool("passwordTool");generatePassword()}
 function generatePassword(){
-
-const characters =
-"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-
+const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
 let password="";
-
-for(let i=0;i<16;i++){
-
-password +=
-characters.charAt(
-Math.floor(
-Math.random()*characters.length
-)
-);
-
+if(window.crypto&&crypto.getRandomValues){
+const values=new Uint32Array(16);crypto.getRandomValues(values);
+for(let i=0;i<16;i++)password+=chars[values[i]%chars.length];
+}else{
+for(let i=0;i<16;i++)password+=chars[Math.floor(Math.random()*chars.length)];
+}
+document.getElementById("passwordResult").value=password;
 }
 
-document.getElementById(
-"passwordResult"
-).value=password;
-
-}
-
-
-/* WORD COUNTER */
-
-function openWordCounter(){
-
-showTool("wordTool");
-
-document
-.getElementById("wordText")
-.focus();
-
-}
-
-
+function openWordCounter(){showTool("wordTool");document.getElementById("wordText").focus()}
 function countWords(){
-
-const text =
-document
-.getElementById("wordText")
-.value;
-
-const words =
-text.trim()===""
-? 0
-: text.trim().split(/\s+/).length;
-
-const characters =
-text.length;
-
-document.getElementById(
-"wordCount"
-).textContent=words;
-
-document.getElementById(
-"characterCount"
-).textContent=characters;
-
+const text=document.getElementById("wordText").value;
+document.getElementById("wordCount").textContent=text.trim()===""?0:text.trim().split(/\s+/).length;
+document.getElementById("characterCount").textContent=text.length;
 }
-
 </script>
 
 </body>
