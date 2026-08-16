@@ -99,27 +99,58 @@ footer{border-top:1px solid #202838;text-align:center;padding:30px 20px;color:#7
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-function searchTools(){const q=searchInput.value.toLowerCase().trim();document.querySelectorAll(".tool").forEach(t=>t.style.display=t.innerText.toLowerCase().includes(q)?"block":"none")}
+const $=id=>document.getElementById(id);
+function searchTools(){const q=$("searchInput").value.toLowerCase().trim();document.querySelectorAll(".tool").forEach(t=>t.style.display=t.innerText.toLowerCase().includes(q)?"block":"none")}
 function hideAllTools(){document.querySelectorAll(".tool-box").forEach(b=>b.style.display="none")}
-function showTool(id){hideAllTools();const b=document.getElementById(id);b.style.display="block";b.scrollIntoView({behavior:"smooth",block:"center"})}
-function openQR(){showTool("qrTool");qrText.focus()}
-function generateQR(){qrcode.innerHTML="";const t=qrText.value.trim();if(!t)return alert("Please enter some text or a URL.");if(typeof QRCode==="undefined")return alert("QR Code library could not load. Please check your internet connection.");new QRCode(qrcode,{text:t,width:200,height:200})}
+function showTool(id){hideAllTools();const b=$(id);b.style.display="block";b.scrollIntoView({behavior:"smooth",block:"center"})}
+
+function openQR(){showTool("qrTool");$("qrText").focus()}
+function generateQR(){const t=$("qrText").value.trim();$("qrcode").innerHTML="";if(!t)return alert("Please enter some text or a URL.");if(typeof QRCode==="undefined")return alert("QR Code library could not load. Please check your internet connection.");new QRCode($("qrcode"),{text:t,width:200,height:200})}
+
 function openCompressor(){showTool("compressorTool")}
-function compressImage(){const f=imageInput.files[0];if(!f)return alert("Please select an image first.");const r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>{const c=document.createElement("canvas"),x=c.getContext("2d");c.width=i.width;c.height=i.height;x.drawImage(i,0,0);c.toBlob(b=>{if(!b)return alert("Compression failed.");const u=URL.createObjectURL(b);compressionResult.innerHTML="<p>Original: "+(f.size/1024).toFixed(1)+" KB</p><p>Compressed: "+(b.size/1024).toFixed(1)+" KB</p><br><a href='"+u+"' download='compressed-image.jpg'><button>Download Compressed Image</button></a>"},"image/jpeg",Number(quality.value)/100)};i.src=e.target.result};r.readAsDataURL(f)}
+function compressImage(){
+ const f=$("imageInput").files[0];if(!f)return alert("Please select an image first.");
+ const r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>{const c=document.createElement("canvas"),x=c.getContext("2d");c.width=i.width;c.height=i.height;x.drawImage(i,0,0);c.toBlob(b=>{if(!b)return alert("Compression failed.");const u=URL.createObjectURL(b);$("compressionResult").innerHTML="<p>Original: "+(f.size/1024).toFixed(1)+" KB</p><p>Compressed: "+(b.size/1024).toFixed(1)+" KB</p><br><a href='"+u+"' download='compressed-image.jpg'><button>Download Compressed Image</button></a>"},"image/jpeg",Number($("quality").value)/100)};i.src=e.target.result};r.readAsDataURL(f)
+}
+
 function openResizer(){showTool("resizerTool")}
-resizeInput.addEventListener("change",()=>{const f=resizeInput.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>{resizeWidth.value=i.width;resizeHeight.value=i.height};i.src=e.target.result};r.readAsDataURL(f)})
-resizeWidth.addEventListener("input",()=>{if(!keepRatio.checked)return;const f=resizeInput.files[0],w=Number(resizeWidth.value);if(!f||!w)return;const r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>resizeHeight.value=Math.round(w*i.height/i.width);i.src=e.target.result};r.readAsDataURL(f)})
-function resizeImage(){const f=resizeInput.files[0],w=Number(resizeWidth.value),h=Number(resizeHeight.value);if(!f)return alert("Please select an image first.");if(!w||!h||w<1||h<1)return alert("Please enter a valid width and height.");const r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>{const c=document.createElement("canvas"),x=c.getContext("2d");c.width=w;c.height=h;x.drawImage(i,0,0,w,h);c.toBlob(b=>{const u=URL.createObjectURL(b);resizeResult.innerHTML="<p>Original: "+i.width+" × "+i.height+" px</p><p>New size: "+w+" × "+h+" px</p><br><a href='"+u+"' download='resized-image.jpg'><button>Download Resized Image</button></a>"},"image/jpeg",.92)};i.src=e.target.result};r.readAsDataURL(f)}
+$("resizeInput").addEventListener("change",()=>{
+ const f=$("resizeInput").files[0];if(!f)return;const r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>{$("resizeWidth").value=i.width;$("resizeHeight").value=i.height};i.src=e.target.result};r.readAsDataURL(f)
+});
+$("resizeWidth").addEventListener("input",()=>{
+ if(!$("keepRatio").checked)return;const f=$("resizeInput").files[0],w=Number($("resizeWidth").value);if(!f||!w)return;const r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>{$("resizeHeight").value=Math.round(w*i.height/i.width)};i.src=e.target.result};r.readAsDataURL(f)
+});
+function resizeImage(){
+ const f=$("resizeInput").files[0],w=Number($("resizeWidth").value),h=Number($("resizeHeight").value);if(!f)return alert("Please select an image first.");if(!w||!h||w<1||h<1)return alert("Please enter a valid width and height.");
+ const r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>{const c=document.createElement("canvas"),x=c.getContext("2d");c.width=w;c.height=h;x.drawImage(i,0,0,w,h);c.toBlob(b=>{if(!b)return alert("Resize failed.");const u=URL.createObjectURL(b);$("resizeResult").innerHTML="<p>Original: "+i.width+" × "+i.height+" px</p><p>New size: "+w+" × "+h+" px</p><br><a href='"+u+"' download='resized-image.jpg'><button>Download Resized Image</button></a>"},"image/jpeg",.92)};i.src=e.target.result};r.readAsDataURL(f)
+}
+
 function openConverter(){showTool("converterTool")}
-function convertImage(){const f=convertInput.files[0];if(!f)return alert("Please select an image first.");const fmt=convertFormat.value,ext=fmt==="image/png"?"png":"jpg",r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>{const c=document.createElement("canvas"),x=c.getContext("2d");c.width=i.width;c.height=i.height;if(fmt==="image/jpeg"){x.fillStyle="#fff";x.fillRect(0,0,c.width,c.height)}x.drawImage(i,0,0);c.toBlob(b=>{const u=URL.createObjectURL(b);convertResult.innerHTML="<p>Original: "+i.width+" × "+i.height+" px</p><p>New format: "+ext.toUpperCase()+"</p><p>New size: "+(b.size/1024).toFixed(1)+" KB</p><br><a href='"+u+"' download='converted-image."+ext+"'><button>Download Converted Image</button></a>"} ,fmt,.92)};i.src=e.target.result};r.readAsDataURL(f)}
+function convertImage(){
+ const f=$("convertInput").files[0];if(!f)return alert("Please select an image first.");const fmt=$("convertFormat").value,ext=fmt==="image/png"?"png":"jpg";
+ const r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>{const c=document.createElement("canvas"),x=c.getContext("2d");c.width=i.width;c.height=i.height;if(fmt==="image/jpeg"){x.fillStyle="#fff";x.fillRect(0,0,c.width,c.height)}x.drawImage(i,0,0);c.toBlob(b=>{if(!b)return alert("Conversion failed.");const u=URL.createObjectURL(b);$("convertResult").innerHTML="<p>Original: "+i.width+" × "+i.height+" px</p><p>New format: "+ext.toUpperCase()+"</p><p>New size: "+(b.size/1024).toFixed(1)+" KB</p><br><a href='"+u+"' download='converted-image."+ext+"'><button>Download Converted Image</button></a>"} ,fmt,fmt==="image/jpeg"?.92:undefined)};i.src=e.target.result};r.readAsDataURL(f)
+}
+
 function openImagePDF(){showTool("imagePDFTool")}
-function imageToPDF(){const f=pdfImageInput.files[0];if(!f)return alert("Please select an image first.");if(!window.jspdf)return alert("PDF library could not load. Please check your internet connection.");const r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>{const pdf=new jspdf.jsPDF({orientation:i.width>i.height?"landscape":"portrait",unit:"mm",format:"a4"}),ratio=Math.min(170/i.width,250/i.height),w=i.width*ratio,h=i.height*ratio,x=(210-w)/2,y=(297-h)/2;pdf.addImage(e.target.result,f.type==="image/png"?"PNG":"JPEG",x,y,w,h);pdf.save("tool-of-tools-image.pdf");pdfResult.innerHTML="<p>✅ PDF created successfully. Check your downloads.</p>"};i.src=e.target.result};r.readAsDataURL(f)}
-function openTextPDF(){showTool("textPDFTool");pdfText.focus()}
-function textToPDF(){const t=pdfText.value.trim();if(!t)return alert("Please enter some text first.");if(!window.jspdf)return alert("PDF library could not load. Please check your internet connection.");const pdf=new jspdf.jsPDF(),lines=pdf.splitTextToSize(t,170);let y=20;lines.forEach(l=>{if(y>280){pdf.addPage();y=20}pdf.text(l,20,y);y+=8});pdf.save("tool-of-tools-text.pdf");textPDFResult.innerHTML="<p>✅ PDF created successfully. Check your downloads.</p>"}
+function imageToPDF(){
+ const f=$("pdfImageInput").files[0];if(!f)return alert("Please select an image first.");if(!window.jspdf)return alert("PDF library could not load. Please check your internet connection.");
+ const r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>{const pdf=new window.jspdf.jsPDF({orientation:i.width>i.height?"landscape":"portrait",unit:"mm",format:"a4"}),ratio=Math.min(170/i.width,250/i.height),w=i.width*ratio,h=i.height*ratio,x=(210-w)/2,y=(297-h)/2;pdf.addImage(e.target.result,f.type==="image/png"?"PNG":"JPEG",x,y,w,h);pdf.save("tool-of-tools-image.pdf");$("pdfResult").innerHTML="<p>✅ PDF created successfully. Check your downloads.</p>"};i.src=e.target.result};r.readAsDataURL(f)
+}
+
+function openTextPDF(){showTool("textPDFTool");$("pdfText").focus()}
+function textToPDF(){
+ const t=$("pdfText").value.trim();if(!t)return alert("Please enter some text first.");if(!window.jspdf)return alert("PDF library could not load. Please check your internet connection.");
+ const pdf=new window.jspdf.jsPDF(),lines=pdf.splitTextToSize(t,170);let y=20;lines.forEach(l=>{if(y>280){pdf.addPage();y=20}pdf.text(l,20,y);y+=8});pdf.save("tool-of-tools-text.pdf");$("textPDFResult").innerHTML="<p>✅ PDF created successfully. Check your downloads.</p>"
+}
+
 function openPassword(){showTool("passwordTool");generatePassword()}
-function generatePassword(){const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";let p="";if(window.crypto&&crypto.getRandomValues){const v=new Uint32Array(16);crypto.getRandomValues(v);for(let i=0;i<16;i++)p+=chars[v[i]%chars.length]}else for(let i=0;i<16;i++)p+=chars[Math.floor(Math.random()*chars.length)];passwordResult.value=p}
-function openWordCounter(){showTool("wordTool");wordText.focus()}
-function countWords(){const t=wordText.value;wordCount.textContent=t.trim()===""?0:t.trim().split(/\s+/).length;characterCount.textContent=t.length}
+function generatePassword(){
+ const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";let p="";
+ if(window.crypto&&window.crypto.getRandomValues){const v=new Uint32Array(16);window.crypto.getRandomValues(v);for(let i=0;i<16;i++)p+=chars[v[i]%chars.length]}else for(let i=0;i<16;i++)p+=chars[Math.floor(Math.random()*chars.length)];
+ $("passwordResult").value=p
+}
+function openWordCounter(){showTool("wordTool");$("wordText").focus()}
+function countWords(){const t=$("wordText").value;$("wordCount").textContent=t.trim()===""?0:t.trim().split(/\s+/).length;$("characterCount").textContent=t.length}
 </script>
 </body>
 </html>
