@@ -355,16 +355,13 @@ height:200
 function searchTools(){
 const query=document.getElementById("searchInput").value.toLowerCase();
 const tools=document.querySelectorAll(".tool");
-
 tools.forEach(tool=>{
 const text=tool.innerText.toLowerCase();
 tool.style.display=text.includes(query)?"block":"none";
-}function openCompressor(){
-document.getElementById("compressorTool").style.display="block";
-document.getElementById("compressorTool").scrollIntoView({behavior:"smooth"});
+});
 }
 
-function compressImage(){
+function openCompressor(){
 const file=document.getElementById("imageInput").files[0];
 
 if(!file){
@@ -373,8 +370,8 @@ return;
 }
 
 const quality=parseInt(document.getElementById("quality").value)/100;
-const img=ne Image();
-const rereaderew FileReader();
+const img=new Image();
+const rereader=new FileReader();
 
 reader.onload=function(e){
 img.onload=function(){
