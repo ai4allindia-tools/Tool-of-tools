@@ -1,6 +1,33 @@
-*{margin:0;padding:0;box-sizing:border-box}
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-html{scroll-behavior:smooth}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tool of Tools - Free Online Tools</title>
+
+<meta name="description" content="Tool of Tools - Fast, simple and free online tools for QR codes, images, PDFs, text, developers, security and everyday tasks.">
+
+<meta name="keywords" content="online tools, QR generator, image compressor, image resizer, PDF tools, text tools, JSON formatter, Base64 encoder, URL encoder, password generator">
+
+<meta name="author" content="Tool of Tools">
+
+<meta property="og:title" content="Tool of Tools - Free Online Tools">
+<meta property="og:description" content="Fast, simple and useful online tools — all in one place.">
+<meta property="og:type" content="website">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box
+}
+
+html{
+scroll-behavior:smooth
+}
 
 body{
 font-family:Arial,sans-serif;
@@ -13,7 +40,7 @@ header{
 position:sticky;
 top:0;
 z-index:100;
-background:rgba(7,10,18,.92);
+background:rgba(7,10,18,.94);
 backdrop-filter:blur(14px);
 border-bottom:1px solid #20263a
 }
@@ -33,7 +60,8 @@ font-weight:900;
 letter-spacing:-.5px
 }
 
-.logo span,h1 span{
+.logo span,
+h1 span{
 color:#8b6cff
 }
 
@@ -123,6 +151,15 @@ box-shadow:0 8px 20px rgba(118,87,255,.2)
 button:hover{
 transform:translateY(-1px);
 background:linear-gradient(135deg,#8b6cff,#6846ed)
+}
+
+.secondary{
+background:#20283a;
+box-shadow:none
+}
+
+.secondary:hover{
+background:#2c3650
 }
 
 .section{
@@ -221,6 +258,7 @@ font-size:14px
 .tool-box input[type="text"],
 .tool-box input[type="file"],
 .tool-box input[type="number"],
+.tool-box input[type="datetime-local"],
 .tool-box textarea,
 .tool-box select{
 width:100%;
@@ -250,10 +288,30 @@ grid-template-columns:1fr 1fr;
 gap:12px
 }
 
+.action-row{
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+margin-top:12px
+}
+
+.action-row button{
+flex:1;
+min-width:130px
+}
+
 #qrcode{
 margin:20px auto;
 display:flex;
 justify-content:center
+}
+
+#qrcode img,
+#qrcode canvas{
+border-radius:8px;
+padding:8px;
+background:white
 }
 
 .result{
@@ -271,6 +329,16 @@ text-decoration:none
 
 .result button{
 margin-top:10px
+}
+
+.success{
+color:#7ee787!important;
+font-weight:700
+}
+
+.error{
+color:#ff7b72!important;
+font-weight:700
 }
 
 pre{
@@ -327,6 +395,18 @@ margin-bottom:8px
 .info-card p{
 color:#929db0;
 font-size:14px
+}
+
+.ad-space{
+max-width:900px;
+min-height:90px;
+margin:25px auto;
+padding:20px;
+border:1px dashed #30384e;
+border-radius:15px;
+text-align:center;
+color:#667085;
+font-size:12px
 }
 
 .cta{
@@ -434,3 +514,1677 @@ font-size:26px
 }
 
 }
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+Tool <span>of Tools</span>
+</div>
+
+<div class="nav-links">
+<a href="#categories">Categories</a>
+<a href="#about">About</a>
+<a href="#privacy">Privacy</a>
+<a href="#contact">Contact</a>
+</div>
+
+</div>
+
+</header>
+
+
+<main>
+
+<section class="hero">
+
+<div class="badge">
+⚡ Fast • Simple • Free
+</div>
+
+<h1>
+Every Tool You Need
+<span>In One Place</span>
+</h1>
+
+<p>
+Powerful, fast and easy-to-use online tools for everyday tasks.
+No complicated software. Just choose a tool and get things done.
+</p>
+
+<div class="search">
+
+<input
+id="searchInput"
+type="text"
+placeholder="Search for a tool..."
+oninput="searchTools()"
+>
+
+<button onclick="searchTools()">
+Search
+</button>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2 class="section-title">
+⭐ Popular Tools
+</h2>
+
+<div class="tools">
+
+
+<div class="tool">
+<div class="tool-icon">▣</div>
+<h3>QR Code Generator</h3>
+<p>Create QR codes from any text or link.</p>
+<button onclick="openQR()">Open Tool</button>
+</div>
+
+
+<div class="tool">
+<div class="tool-icon">🖼️</div>
+<h3>Image Compressor</h3>
+<p>Reduce image size while keeping good quality.</p>
+<button onclick="openCompressor()">Open Tool</button>
+</div>
+
+
+<div class="tool">
+<div class="tool-icon">📐</div>
+<h3>Image Resizer</h3>
+<p>Resize images to your desired width and height.</p>
+<button onclick="openResizer()">Open Tool</button>
+</div>
+
+
+<div class="tool">
+<div class="tool-icon">🔄</div>
+<h3>JPG ↔ PNG Converter</h3>
+<p>Convert images between JPG and PNG formats.</p>
+<button onclick="openConverter()">Open Tool</button>
+</div>
+
+
+<div class="tool">
+<div class="tool-icon">📄</div>
+<h3>Image to PDF</h3>
+<p>Convert an image into a downloadable PDF file.</p>
+<button onclick="openImagePDF()">Open Tool</button>
+</div>
+
+
+<div class="tool">
+<div class="tool-icon">📝</div>
+<h3>Text to PDF</h3>
+<p>Turn your text into a clean PDF document.</p>
+<button onclick="openTextPDF()">Open Tool</button>
+</div>
+
+
+<div class="tool">
+<div class="tool-icon">🔐</div>
+<h3>Password Generator</h3>
+<p>Create strong and secure passwords.</p>
+<button onclick="openPassword()">Open Tool</button>
+</div>
+
+
+<div class="tool">
+<div class="tool-icon">🔤</div>
+<h3>Word Counter</h3>
+<p>Count words and characters instantly.</p>
+<button onclick="openWordCounter()">Open Tool</button>
+</div>
+
+
+<div class="tool">
+<div class="tool-icon">🧑‍💻</div>
+<h3>JSON Formatter</h3>
+<p>Format and validate JSON data easily.</p>
+<button onclick="openJSON()">Open Tool</button>
+</div>
+
+
+<div class="tool">
+<div class="tool-icon">🔐</div>
+<h3>Base64 Encoder</h3>
+<p>Encode and decode normal text using Base64.</p>
+<button onclick="openBase64()">Open Tool</button>
+</div>
+
+
+<div class="tool">
+<div class="tool-icon">🔗</div>
+<h3>URL Encoder</h3>
+<p>Encode and decode text safely for URLs.</p>
+<button onclick="openURL()">Open Tool</button>
+</div>
+
+
+<div class="tool">
+<div class="tool-icon">⏱️</div>
+<h3>Unix Timestamp</h3>
+<p>Convert dates and timestamps instantly.</p>
+<button onclick="openTimestamp()">Open Tool</button>
+</div>
+
+</div>
+
+
+<!-- QR -->
+
+<div class="tool-box" id="qrTool">
+
+<h2>▣ QR Code Generator</h2>
+
+<p>Enter text, website link, phone number or anything else.</p>
+
+<input id="qrText" type="text" placeholder="Enter text or URL">
+
+<button onclick="generateQR()">
+Generate QR Code
+</button>
+
+<div id="qrcode"></div>
+
+<div id="qrResult" class="result"></div>
+
+</div>
+
+
+<!-- COMPRESSOR -->
+
+<div class="tool-box" id="compressorTool">
+
+<h2>🖼️ Image Compressor</h2>
+
+<p>Select an image and reduce its file size.</p>
+
+<input type="file" id="imageInput" accept="image/*">
+
+<label>
+Quality:
+<strong id="qualityValue">70%</strong>
+</label>
+
+<input
+type="range"
+id="quality"
+min="10"
+max="100"
+value="70"
+oninput="qualityValue.textContent=this.value+'%'"
+>
+
+<button onclick="compressImage()">
+Compress Image
+</button>
+
+<div id="compressionResult" class="result"></div>
+
+</div>
+
+
+<!-- RESIZER -->
+
+<div class="tool-box" id="resizerTool">
+
+<h2>📐 Image Resizer</h2>
+
+<p>Select an image and choose the new size.</p>
+
+<input type="file" id="resizeInput" accept="image/*">
+
+<div class="size-row">
+
+<div>
+<label>Width (px)</label>
+<input type="number" id="resizeWidth" min="1" placeholder="Width">
+</div>
+
+<div>
+<label>Height (px)</label>
+<input type="number" id="resizeHeight" min="1" placeholder="Height">
+</div>
+
+</div>
+
+<label>
+<input type="checkbox" id="keepRatio" checked>
+Keep aspect ratio
+</label>
+
+<br><br>
+
+<button onclick="resizeImage()">
+Resize Image
+</button>
+
+<div id="resizeResult" class="result"></div>
+
+</div>
+
+
+<!-- CONVERTER -->
+
+<div class="tool-box" id="converterTool">
+
+<h2>🔄 JPG ↔ PNG Converter</h2>
+
+<p>Select an image and choose the format.</p>
+
+<input
+type="file"
+id="convertInput"
+accept="image/jpeg,image/png"
+>
+
+<label>Convert to:</label>
+
+<select id="convertFormat">
+
+<option value="image/png">
+PNG
+</option>
+
+<option value="image/jpeg">
+JPG
+</option>
+
+</select>
+
+<button onclick="convertImage()">
+Convert Image
+</button>
+
+<div id="convertResult" class="result"></div>
+
+</div>
+
+
+<!-- IMAGE PDF -->
+
+<div class="tool-box" id="imagePDFTool">
+
+<h2>📄 Image to PDF</h2>
+
+<p>Select an image and convert it into a PDF.</p>
+
+<input type="file" id="pdfImageInput" accept="image/*">
+
+<button onclick="imageToPDF()">
+Create PDF
+</button>
+
+<div id="pdfResult" class="result"></div>
+
+</div>
+
+
+<!-- TEXT PDF -->
+
+<div class="tool-box" id="textPDFTool">
+
+<h2>📝 Text to PDF</h2>
+
+<p>Enter your text and create a PDF document.</p>
+
+<textarea
+id="pdfText"
+placeholder="Type or paste your text here..."
+></textarea>
+
+<button onclick="textToPDF()">
+Create PDF
+</button>
+
+<div id="textPDFResult" class="result"></div>
+
+</div>
+
+
+<!-- PASSWORD -->
+
+<div class="tool-box" id="passwordTool">
+
+<h2>🔐 Password Generator</h2>
+
+<p>Generate a strong random password.</p>
+
+<input
+id="passwordResult"
+type="text"
+placeholder="Your password"
+readonly
+>
+
+<div class="action-row">
+
+<button onclick="generatePassword()">
+Generate Password
+</button>
+
+<button class="secondary" onclick="copyText('passwordResult')">
+Copy
+</button>
+
+</div>
+
+<div id="passwordCopyResult" class="result"></div>
+
+</div>
+
+
+<!-- WORD COUNTER -->
+
+<div class="tool-box" id="wordTool">
+
+<h2>🔤 Word Counter</h2>
+
+<p>Enter your text below.</p>
+
+<textarea
+id="wordText"
+placeholder="Type or paste your text here..."
+oninput="countWords()"
+></textarea>
+
+<p>
+Words:
+<strong id="wordCount">0</strong>
+&nbsp; | &nbsp;
+Characters:
+<strong id="characterCount">0</strong>
+</p>
+
+<div class="action-row">
+
+<button class="secondary" onclick="clearWordCounter()">
+Clear
+</button>
+
+</div>
+
+</div>
+
+
+<!-- JSON -->
+
+<div class="tool-box" id="jsonTool">
+
+<h2>🧑‍💻 JSON Formatter</h2>
+
+<p>Paste JSON below to format and validate it.</p>
+
+<textarea
+id="jsonInput"
+placeholder='Example: {"name":"Tool of Tools","free":true}'
+></textarea>
+
+<div class="action-row">
+
+<button onclick="formatJSON()">
+Format JSON
+</button>
+
+<button class="secondary" onclick="clearJSON()">
+Clear
+</button>
+
+</div>
+
+<div id="jsonResult" class="result"></div>
+
+</div>
+
+
+<!-- BASE64 -->
+
+<div class="tool-box" id="base64Tool">
+
+<h2>🔐 Base64 Encoder / Decoder</h2>
+
+<p>Encode or decode text using Base64.</p>
+
+<textarea
+id="base64Input"
+placeholder="Enter text here..."
+></textarea>
+
+<div class="size-row">
+
+<button onclick="encodeBase64()">
+Encode
+</button>
+
+<button onclick="decodeBase64()">
+Decode
+</button>
+
+</div>
+
+<div class="action-row">
+
+<button class="secondary" onclick="copyResult('base64Result')">
+Copy Result
+</button>
+
+<button class="secondary" onclick="clearBase64()">
+Clear
+</button>
+
+</div>
+
+<div id="base64Result" class="result"></div>
+
+</div>
+
+
+<!-- URL -->
+
+<div class="tool-box" id="urlTool">
+
+<h2>🔗 URL Encoder / Decoder</h2>
+
+<p>Encode or decode text for URLs.</p>
+
+<textarea
+id="urlInput"
+placeholder="Enter URL or text here..."
+></textarea>
+
+<div class="size-row">
+
+<button onclick="encodeURL()">
+Encode
+</button>
+
+<button onclick="decodeURL()">
+Decode
+</button>
+
+</div>
+
+<div class="action-row">
+
+<button class="secondary" onclick="copyResult('urlResult')">
+Copy Result
+</button>
+
+<button class="secondary" onclick="clearURL()">
+Clear
+</button>
+
+</div>
+
+<div id="urlResult" class="result"></div>
+
+</div>
+
+
+<!-- TIMESTAMP -->
+
+<div class="tool-box" id="timestampTool">
+
+<h2>⏱️ Unix Timestamp</h2>
+
+<p>Convert between date/time and Unix timestamp.</p>
+
+<input id="dateInput" type="datetime-local">
+
+<button onclick="dateToTimestamp()">
+Date → Timestamp
+</button>
+
+<input
+id="timestampInput"
+type="number"
+placeholder="Enter Unix timestamp"
+>
+
+<button onclick="timestampToDate()">
+Timestamp → Date
+</button>
+
+<div id="timestampResult" class="result"></div>
+
+</div>
+
+</section>
+
+
+<div class="ad-space">
+Advertisement space
+</div>
+
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+
+<h2 class="section-title">
+🧰 Tool Categories
+</h2>
+
+<div class="categories">
+
+<div class="category">▣ QR Tools</div>
+<div class="category">🖼️ Image Tools</div>
+<div class="category">📄 PDF Tools</div>
+<div class="category">📝 Text Tools</div>
+<div class="category">💻 Developer Tools</div>
+<div class="category">🔐 Security Tools</div>
+<div class="category">🔧 Utility Tools</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<h2 class="section-title">
+ℹ️ About Tool of Tools
+</h2>
+
+<div class="info-grid">
+
+<div class="info-card">
+
+<h3>Simple</h3>
+
+<p>
+Useful everyday utilities together in one clean and easy-to-use website.
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h3>Fast</h3>
+
+<p>
+Many tools work directly in your browser without installing complicated software.
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h3>Free</h3>
+
+<p>
+Our goal is to provide useful online tools that are simple, accessible and free to use.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRIVACY -->
+
+<section class="section" id="privacy">
+
+<h2 class="section-title">
+🔒 Privacy Policy
+</h2>
+
+<div class="info-card">
+
+<p>
+Tool of Tools is designed to provide simple browser-based utilities.
+Where a tool processes a file, processing is intended to happen in your browser
+and the selected file is not intentionally uploaded to our server by these tools.
+</p>
+
+<br>
+
+<p>
+We do not ask you to enter passwords, payment information or other sensitive
+personal information into the tools.
+</p>
+
+<br>
+
+<p>
+External libraries used by some features may be loaded from third-party
+content delivery networks.
+</p>
+
+<br>
+
+<p>
+This website may later use advertising, analytics or other third-party services.
+If those services are added, this policy should be updated accordingly.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+
+<h2 class="section-title">
+📩 Contact
+</h2>
+
+<div class="info-card">
+
+<h3>Get in touch</h3>
+
+<p>
+For suggestions, problems or other enquiries,
+contact the website owner by email.
+</p>
+
+<br>
+
+<p>
+<strong>Contact email:</strong>
+<a
+href="mailto:ai4allindia.com@gmail.com"
+style="color:#8b6cff"
+>
+ai4allindia.com@gmail.com
+</a>
+</p>
+
+</div>
+
+</section>
+
+
+<section class="cta">
+
+<h2>
+Find the Right Tool for Your Task.
+</h2>
+
+<p>
+Fast, simple and useful tools — all in one place.
+</p>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+© 2026 Tool of Tools. All rights reserved.
+</div>
+
+<div style="margin-top:10px">
+
+<a href="#about">About</a>
+<a href="#privacy">Privacy Policy</a>
+<a href="#contact">Contact</a>
+<a href="#categories">Categories</a>
+
+</div>
+
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+<script>
+
+const $ = id => document.getElementById(id);
+
+
+/* SEARCH */
+
+function searchTools(){
+
+const q=$("searchInput").value.toLowerCase().trim();
+
+document.querySelectorAll(".tool").forEach(t=>{
+
+t.style.display=
+t.innerText.toLowerCase().includes(q)
+?"block"
+:"none";
+
+});
+
+}
+
+
+/* TOOL DISPLAY */
+
+function hideAllTools(){
+
+document.querySelectorAll(".tool-box").forEach(b=>{
+b.style.display="none";
+});
+
+}
+
+function showTool(id){
+
+hideAllTools();
+
+const box=$(id);
+
+box.style.display="block";
+
+box.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+}
+
+
+/* QR */
+
+function openQR(){
+
+showTool("qrTool");
+
+$("qrText").focus();
+
+}
+
+function generateQR(){
+
+const text=$("qrText").value.trim();
+
+$("qrcode").innerHTML="";
+$("qrResult").innerHTML="";
+
+if(!text){
+
+alert("Please enter some text or a URL.");
+
+return;
+
+}
+
+if(typeof QRCode==="undefined"){
+
+$("qrResult").innerHTML=
+'<p class="error">QR library could not load. Check your internet connection.</p>';
+
+return;
+
+}
+
+new QRCode($("qrcode"),{
+text:text,
+width:200,
+height:200
+});
+
+setTimeout(()=>{
+
+const canvas=$("qrcode").querySelector("canvas");
+const img=$("qrcode").querySelector("img");
+
+let src="";
+
+if(canvas){
+src=canvas.toDataURL("image/png");
+}else if(img){
+src=img.src;
+}
+
+if(src){
+
+$("qrResult").innerHTML=
+'<a href="'+src+'" download="tool-of-tools-qr.png">'+
+'<button>Download QR Code</button>'+
+'</a>';
+
+}
+
+},500);
+
+}
+
+
+/* COMPRESSOR */
+
+function openCompressor(){
+showTool("compressorTool");
+}
+
+function compressImage(){
+
+const f=$("imageInput").files[0];
+
+if(!f){
+alert("Please select an image first.");
+return;
+}
+
+const reader=new FileReader();
+
+reader.onload=e=>{
+
+const img=new Image();
+
+img.onload=()=>{
+
+const canvas=document.createElement("canvas");
+
+canvas.width=img.width;
+canvas.height=img.height;
+
+const ctx=canvas.getContext("2d");
+
+ctx.drawImage(img,0,0);
+
+canvas.toBlob(blob=>{
+
+if(!blob){
+alert("Compression failed.");
+return;
+}
+
+const url=URL.createObjectURL(blob);
+
+$("compressionResult").innerHTML=
+
+"<p>Original: "+(f.size/1024).toFixed(1)+" KB</p>"+
+"<p>Compressed: "+(blob.size/1024).toFixed(1)+" KB</p>"+
+
+'<a href="'+url+'" download="compressed-image.jpg">'+
+"<button>Download Compressed Image</button>"+
+"</a>";
+
+},"image/jpeg",Number($("quality").value)/100);
+
+};
+
+img.src=e.target.result;
+
+};
+
+reader.readAsDataURL(f);
+
+}
+
+
+/* RESIZER */
+
+function openResizer(){
+showTool("resizerTool");
+}
+
+$("resizeInput").addEventListener("change",()=>{
+
+const file=$("resizeInput").files[0];
+
+if(!file)return;
+
+const reader=new FileReader();
+
+reader.onload=e=>{
+
+const img=new Image();
+
+img.onload=()=>{
+
+$("resizeWidth").value=img.width;
+$("resizeHeight").value=img.height;
+
+};
+
+img.src=e.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+
+$("resizeWidth").addEventListener("input",()=>{
+
+if(!$("keepRatio").checked)return;
+
+const file=$("resizeInput").files[0];
+
+const width=Number($("resizeWidth").value);
+
+if(!file || !width)return;
+
+const reader=new FileReader();
+
+reader.onload=e=>{
+
+const img=new Image();
+
+img.onload=()=>{
+
+$("resizeHeight").value=
+Math.round(width*img.height/img.width);
+
+};
+
+img.src=e.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+
+function resizeImage(){
+
+const file=$("resizeInput").files[0];
+
+const width=Number($("resizeWidth").value);
+
+const height=Number($("resizeHeight").value);
+
+if(!file){
+alert("Please select an image first.");
+return;
+}
+
+if(!width || !height || width<1 || height<1){
+alert("Please enter valid width and height.");
+return;
+}
+
+const reader=new FileReader();
+
+reader.onload=e=>{
+
+const img=new Image();
+
+img.onload=()=>{
+
+const canvas=document.createElement("canvas");
+
+canvas.width=width;
+canvas.height=height;
+
+const ctx=canvas.getContext("2d");
+
+ctx.drawImage(img,0,0,width,height);
+
+canvas.toBlob(blob=>{
+
+if(!blob){
+alert("Resize failed.");
+return;
+}
+
+const url=URL.createObjectURL(blob);
+
+$("resizeResult").innerHTML=
+
+"<p>Original: "+img.width+" × "+img.height+" px</p>"+
+"<p>New size: "+width+" × "+height+" px</p>"+
+
+'<a href="'+url+'" download="resized-image.jpg">'+
+"<button>Download Resized Image</button>"+
+"</a>";
+
+},"image/jpeg",.92);
+
+};
+
+img.src=e.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* CONVERTER */
+
+function openConverter(){
+showTool("converterTool");
+}
+
+function convertImage(){
+
+const file=$("convertInput").files[0];
+
+if(!file){
+alert("Please select an image first.");
+return;
+}
+
+const format=$("convertFormat").value;
+
+const extension=
+format==="image/png"?"png":"jpg";
+
+const reader=new FileReader();
+
+reader.onload=e=>{
+
+const img=new Image();
+
+img.onload=()=>{
+
+const canvas=document.createElement("canvas");
+
+canvas.width=img.width;
+canvas.height=img.height;
+
+const ctx=canvas.getContext("2d");
+
+if(format==="image/jpeg"){
+
+ctx.fillStyle="#ffffff";
+
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+}
+
+ctx.drawImage(img,0,0);
+
+canvas.toBlob(blob=>{
+
+if(!blob){
+alert("Conversion failed.");
+return;
+}
+
+const url=URL.createObjectURL(blob);
+
+$("convertResult").innerHTML=
+
+"<p>Original: "+img.width+" × "+img.height+" px</p>"+
+"<p>New format: "+extension.toUpperCase()+"</p>"+
+"<p>New size: "+(blob.size/1024).toFixed(1)+" KB</p>"+
+
+'<a href="'+url+'" download="converted-image.'+extension+'">'+
+"<button>Download Converted Image</button>"+
+"</a>";
+
+},format,format==="image/jpeg"?.92:undefined);
+
+};
+
+img.src=e.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* IMAGE PDF */
+
+function openImagePDF(){
+showTool("imagePDFTool");
+}
+
+function imageToPDF(){
+
+const file=$("pdfImageInput").files[0];
+
+if(!file){
+alert("Please select an image first.");
+return;
+}
+
+if(!window.jspdf){
+
+$("pdfResult").innerHTML=
+'<p class="error">PDF library could not load. Check your internet connection.</p>';
+
+return;
+}
+
+const reader=new FileReader();
+
+reader.onload=e=>{
+
+const img=new Image();
+
+img.onload=()=>{
+
+const pdf=new window.jspdf.jsPDF({
+
+orientation:img.width>img.height?"landscape":"portrait",
+
+unit:"mm",
+
+format:"a4"
+
+});
+
+const pageWidth=pdf.internal.pageSize.getWidth();
+const pageHeight=pdf.internal.pageSize.getHeight();
+
+const margin=10;
+
+const ratio=Math.min(
+(pageWidth-margin*2)/img.width,
+(pageHeight-margin*2)/img.height
+);
+
+const width=img.width*ratio;
+const height=img.height*ratio;
+
+const x=(pageWidth-width)/2;
+const y=(pageHeight-height)/2;
+
+pdf.addImage(
+e.target.result,
+file.type==="image/png"?"PNG":"JPEG",
+x,
+y,
+width,
+height
+);
+
+pdf.save("tool-of-tools-image.pdf");
+
+$("pdfResult").innerHTML=
+'<p class="success">✅ PDF created successfully. Check your downloads.</p>';
+
+};
+
+img.src=e.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* TEXT PDF */
+
+function openTextPDF(){
+
+showTool("textPDFTool");
+
+$("pdfText").focus();
+
+}
+
+function textToPDF(){
+
+const text=$("pdfText").value.trim();
+
+if(!text){
+alert("Please enter some text first.");
+return;
+}
+
+if(!window.jspdf){
+
+$("textPDFResult").innerHTML=
+'<p class="error">PDF library could not load.</p>';
+
+return;
+}
+
+const pdf=new window.jspdf.jsPDF();
+
+const lines=pdf.splitTextToSize(text,170);
+
+let y=20;
+
+lines.forEach(line=>{
+
+if(y>280){
+
+pdf.addPage();
+
+y=20;
+
+}
+
+pdf.text(line,20,y);
+
+y+=8;
+
+});
+
+pdf.save("tool-of-tools-text.pdf");
+
+$("textPDFResult").innerHTML=
+'<p class="success">✅ PDF created successfully. Check your downloads.</p>';
+
+}
+
+
+/* PASSWORD */
+
+function openPassword(){
+
+showTool("passwordTool");
+
+generatePassword();
+
+}
+
+function generatePassword(){
+
+const chars=
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+let password="";
+
+if(window.crypto && window.crypto.getRandomValues){
+
+const values=new Uint32Array(20);
+
+window.crypto.getRandomValues(values);
+
+for(let i=0;i<20;i++){
+
+password+=chars[values[i]%chars.length];
+
+}
+
+}else{
+
+for(let i=0;i<20;i++){
+
+password+=chars[Math.floor(Math.random()*chars.length)];
+
+}
+
+}
+
+$("passwordResult").value=password;
+
+$("passwordCopyResult").innerHTML="";
+
+}
+
+
+/* WORD COUNTER */
+
+function openWordCounter(){
+
+showTool("wordTool");
+
+$("wordText").focus();
+
+}
+
+function countWords(){
+
+const text=$("wordText").value;
+
+$("wordCount").textContent=
+text.trim()===""?0:text.trim().split(/\s+/).length;
+
+$("characterCount").textContent=text.length;
+
+}
+
+function clearWordCounter(){
+
+$("wordText").value="";
+
+countWords();
+
+}
+
+
+/* JSON */
+
+function openJSON(){
+
+showTool("jsonTool");
+
+$("jsonInput").focus();
+
+}
+
+function formatJSON(){
+
+const input=$("jsonInput").value.trim();
+
+if(!input){
+
+alert("Please enter JSON first.");
+return;
+
+}
+
+try{
+
+const parsed=JSON.parse(input);
+
+const formatted=JSON.stringify(parsed,null,2);
+
+$("jsonResult").innerHTML=
+
+'<p class="success">✅ Valid JSON</p>'+
+"<pre>"+escapeHTML(formatted)+"</pre>"+
+'<button onclick="copyResultText(this)">Copy JSON</button>';
+
+}catch(error){
+
+$("jsonResult").innerHTML=
+'<p class="error">❌ Invalid JSON</p>';
+
+}
+
+}
+
+function clearJSON(){
+
+$("jsonInput").value="";
+$("jsonResult").innerHTML="";
+
+}
+
+
+/* BASE64 */
+
+function openBase64(){
+
+showTool("base64Tool");
+
+$("base64Input").focus();
+
+}
+
+function encodeBase64(){
+
+const text=$("base64Input").value;
+
+if(!text){
+
+alert("Please enter text first.");
+return;
+
+}
+
+try{
+
+const encoded=
+btoa(unescape(encodeURIComponent(text)));
+
+$("base64Result").innerHTML=
+"<pre>"+escapeHTML(encoded)+"</pre>";
+
+}catch(error){
+
+$("base64Result").innerHTML=
+'<p class="error">Encoding failed.</p>';
+
+}
+
+}
+
+function decodeBase64(){
+
+const text=$("base64Input").value.trim();
+
+if(!text){
+
+alert("Please enter Base64 text first.");
+return;
+
+}
+
+try{
+
+const decoded=
+decodeURIComponent(escape(atob(text)));
+
+$("base64Result").innerHTML=
+"<pre>"+escapeHTML(decoded)+"</pre>";
+
+}catch(error){
+
+$("base64Result").innerHTML=
+'<p class="error">❌ Invalid Base64 text.</p>';
+
+}
+
+}
+
+function clearBase64(){
+
+$("base64Input").value="";
+$("base64Result").innerHTML="";
+
+}
+
+
+/* URL */
+
+function openURL(){
+
+showTool("urlTool");
+
+$("urlInput").focus();
+
+}
+
+function encodeURL(){
+
+const text=$("urlInput").value;
+
+if(!text){
+
+alert("Please enter text first.");
+return;
+
+}
+
+$("urlResult").innerHTML=
+"<pre>"+escapeHTML(encodeURIComponent(text))+"</pre>";
+
+}
+
+function decodeURL(){
+
+const text=$("urlInput").value;
+
+if(!text){
+
+alert("Please enter encoded text first.");
+return;
+
+}
+
+try{
+
+$("urlResult").innerHTML=
+"<pre>"+escapeHTML(decodeURIComponent(text))+"</pre>";
+
+}catch(error){
+
+$("urlResult").innerHTML=
+'<p class="error">❌ Invalid encoded URL text.</p>';
+
+}
+
+}
+
+function clearURL(){
+
+$("urlInput").value="";
+$("urlResult").innerHTML="";
+
+}
+
+
+/* TIMESTAMP */
+
+function openTimestamp(){
+
+showTool("timestampTool");
+
+}
+
+function dateToTimestamp(){
+
+const value=$("dateInput").value;
+
+if(!value){
+
+alert("Please select date and time.");
+return;
+
+}
+
+const timestamp=
+Math.floor(new Date(value).getTime()/1000);
+
+$("timestampResult").innerHTML=
+"<p>Unix Timestamp:</p>"+
+"<pre>"+timestamp+"</pre>";
+
+}
+
+function timestampToDate(){
+
+const value=$("timestampInput").value;
+
+if(value===""){
+
+alert("Please enter a timestamp.");
+return;
+
+}
+
+const timestamp=Number(value);
+
+if(!Number.isFinite(timestamp)){
+
+alert("Please enter a valid timestamp.");
+return;
+
+}
+
+const date=new Date(timestamp*1000);
+
+$("timestampResult").innerHTML=
+"<p>Date and Time:</p>"+
+"<pre>"+date.toLocaleString()+"</pre>";
+
+}
+
+
+/* COPY */
+
+function copyText(id){
+
+const input=$(id);
+
+if(!input)return;
+
+navigator.clipboard.writeText(input.value).then(()=>{
+
+$("passwordCopyResult").innerHTML=
+'<p class="success">✅ Copied!</p>';
+
+}).catch(()=>{
+
+input.select();
+
+document.execCommand("copy");
+
+$("passwordCopyResult").innerHTML=
+'<p class="success">✅ Copied!</p>';
+
+});
+
+}
+
+
+function copyResult(id){
+
+const box=$(id);
+
+const pre=box.querySelector("pre");
+
+if(!pre){
+
+alert("Nothing to copy yet.");
+
+return;
+
+}
+
+navigator.clipboard.writeText(pre.innerText).then(()=>{
+
+alert("Copied successfully!");
+
+}).catch(()=>{
+
+alert("Copy failed. Please copy manually.");
+
+});
+
+}
+
+
+function copyResultText(button){
+
+const pre=button.previousElementSibling;
+
+if(!pre)return;
+
+navigator.clipboard.writeText(pre.innerText).then(()=>{
+
+button.textContent="Copied!";
+
+setTimeout(()=>{
+
+button.textContent="Copy JSON";
+
+},1500);
+
+});
+
+}
+
+
+/* HTML ESCAPE */
+
+function escapeHTML(text){
+
+return String(text)
+
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
