@@ -78,7 +78,7 @@ footer{background:#fff;border-top:1px solid #e6e1ec;text-align:center;padding:30
 
 <section class="section" id="tools"><div class="section-head"><div><h2 class="section-title">⭐ Tools</h2><p class="muted">Your files stay in your browser for the client-side tools below.</p></div><button class="secondary" onclick="showFavorites()">★ Favorites</button></div>
 <div class="filters" id="filters"></div><div class="tools" id="toolGrid"></div>
-<div class="toolbox" id="toolBox"><h2 id="boxTitle">Tool</h2><p id="boxDesc"></p><div id="boxContent"></div></div></section>
+<div class="toolbox" id="toolBox" aria-live="polite"><div style="display:flex;justify-content:space-between;gap:12px;align-items:start"><div><h2 id="boxTitle">Tool</h2><p id="boxDesc"></p></div><button class="secondary" onclick="closeTool()" aria-label="Close tool">Close</button></div><div id="boxContent"></div></div></section>
 
 <div class="ad-space">Advertisement space</div>
 
@@ -100,7 +100,7 @@ footer{background:#fff;border-top:1px solid #e6e1ec;text-align:center;padding:30
 <details><summary>Does it work on mobile?</summary><p>Yes. The interface is responsive for phones, tablets and desktops.</p></details>
 <details><summary>Can I suggest a tool?</summary><p>Use the contact email below with the tool name and what you need it to do.</p></details></section>
 
-<section class="section" id="contact"><h2 class="section-title">📩 Contact</h2><div class="info-card"><h3>Get in touch</h3><p>Suggestions, bug reports and enquiries are welcome.</p><br><p><strong>Email:</strong> <a href="mailto:ai4allindia.com@gmail.com" style="color:#6d28d9">ai4allindia.com@gmail.com</a></p></div></section>
+<section class="section" id="contact"><h2 class="section-title">📩 Contact</h2><div class="info-card"><h3>Get in touch</h3><p>Suggestions, bug reports and enquiries are welcome.</p><br><p><strong>Email:</strong> <a href="mailto:ai4allindia.com@gmail.com" style="color:#6d28d9">ai4allindia.com@gmail.com</a></p><br><button class="primary" onclick="openFeedback()">Send Feedback</button></div></section>
 <section class="cta"><h2>Find the Right Tool for Your Task.</h2><p class="muted">Fast, simple and useful tools — all in one place.</p></section>
 </main>
 <footer>© 2026 Tool of Tools. All rights reserved.<div style="margin-top:9px"><a href="#about">About</a><a href="#privacy">Privacy</a><a href="#contact">Contact</a><a href="#categories">Categories</a><a href="#faq">FAQ</a></div></footer>
@@ -185,7 +185,23 @@ csvjson:()=>`<div class="field"><label>CSV</label><textarea id="csvInput" placeh
 
 function readImage(file,cb){if(!file)return toast('Please select an image first');if(!file.type.startsWith('image/'))return toast('Please select an image');const r=new FileReader();r.onload=e=>{const img=new Image();img.onload=()=>cb(img,e.target.result,file);img.src=e.target.result};r.onerror=()=>toast('Could not read file');r.readAsDataURL(file)}
 function downloadBlob(blob,name){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
-function generateQR(){const text=$('qrText').value.trim();if(!text)return toast('Enter text or URL');$('qrcode').innerHTML='';new QRCode($('qrcode'),{text,width:220,height:220});setTimeout(()=>{const c=$('qrcode').querySelector('canvas');if(c){$('qrResult').innerHTML=`<button class="secondary" onclick="downloadBlob(dataURLBlob('${c.toDataURL('image/png')}'),'tool-of-tools-qr.png')">Download QR</button>`}},250)}
+function generateQR(){
+  const text=$('qrText').value.trim();
+  if(!text)return toast('Enter text or URL');
+  $('qrcode').innerHTML='';
+  $('qrResult').innerHTML='';
+  new QRCode($('qrcode'),{text,width:220,height:220,correctLevel:QRCode.CorrectLevel.H});
+  setTimeout(()=>{
+    const c=$('qrcode').querySelector('canvas');
+    if(c){
+      const btn=document.createElement('button');
+      btn.className='secondary';
+      btn.textContent='Download QR';
+      btn.onclick=()=>downloadBlob(dataURLBlob(c.toDataURL('image/png')),'tool-of-tools-qr.png');
+      $('qrResult').appendChild(btn);
+    }
+  },250);
+}
 function dataURLBlob(u){const [h,b]=u.split(',');const m=h.match(/:(.*?);/)[1];const bin=atob(b),arr=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);return new Blob([arr],{type:m})}
 function clearQR(){if($('qrText'))$('qrText').value='';if($('qrcode'))$('qrcode').innerHTML='';if($('qrResult'))$('qrResult').innerHTML=''}
 function compressImage(){readImage($('imageInput').files[0],(img,src,file)=>{const c=document.createElement('canvas');c.width=img.width;c.height=img.height;c.getContext('2d').drawImage(img,0,0);c.toBlob(b=>{$('compressionResult').innerHTML=`<p>Original: ${(file.size/1024).toFixed(1)} KB</p><p>Compressed: ${(b.size/1024).toFixed(1)} KB</p><p class="${b.size<file.size?'success':'error'}">${b.size<file.size?'Saved '+((1-b.size/file.size)*100).toFixed(1)+'%':'No size reduction at this quality.'}</p><button class="primary" onclick="downloadBlob(window._lastBlob,'compressed-image.jpg')">Download</button>`;window._lastBlob=b},'image/jpeg',Number($('quality').value)/100)})}
@@ -212,12 +228,24 @@ function lorem(){const p=['Lorem ipsum dolor sit amet, consectetur adipiscing el
 function toBinary(){const t=$('binaryInput').value;const out=[...new TextEncoder().encode(t)].map(b=>b.toString(2).padStart(8,'0')).join(' ');$('binaryResult').innerHTML=`<pre>${out}</pre>`}
 function fromBinary(){try{const a=$('binaryInput').value.trim().split(/\s+/).map(x=>parseInt(x,2));if(a.some(x=>!Number.isInteger(x)||x<0||x>255))throw 0;$('binaryResult').innerHTML=`<pre>${esc(new TextDecoder().decode(new Uint8Array(a)))}</pre>`}catch(e){$('binaryResult').innerHTML='<p class="error">Invalid binary input.</p>'}}
 function csvToJSON(){const lines=$('csvInput').value.trim().split(/\r?\n/);if(lines.length<2)return toast('Add a header and at least one row');const headers=lines[0].split(',').map(x=>x.trim());const out=lines.slice(1).map(line=>{const v=line.split(',');return Object.fromEntries(headers.map((h,i)=>[h,(v[i]||'').trim()]))});$('csvResult').innerHTML=`<pre>${esc(JSON.stringify(out,null,2))}</pre><button class="secondary" onclick="copyResult('csvResult')">Copy</button>`}
-function toggleTheme(){document.body.classList.toggle('dark');localStorage.setItem('tot_theme',document.body.classList.contains('dark')?'dark':'light')}
+function toggleTheme(){document.body.classList.toggle('dark');localStorage.setItem('tot_theme',document.body.classList.contains('dark')?'dark':'light');toast(document.body.classList.contains('dark')?'Dark mode':'Light mode')}
 function shareSite(){if(navigator.share)navigator.share({title:'Tool of Tools',text:'Fast, simple and free online tools.',url:location.href}).catch(()=>{});else copyText(location.href)}
-function openFeedback(){$('feedbackModal').classList.add('open')}function closeFeedback(){$('feedbackModal').classList.remove('open')}
+function openFeedback(){$('feedbackModal').classList.add('open');$('feedbackText').focus()}function closeFeedback(){$('feedbackModal').classList.remove('open')}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeFeedback()})
 function sendFeedback(){const t=$('feedbackText').value.trim();if(!t)return toast('Write your feedback first');location.href='mailto:ai4allindia.com@gmail.com?subject=Tool%20of%20Tools%20Feedback&body='+encodeURIComponent(t)}
 document.addEventListener('change',e=>{if(e.target.id==='resizeInput')readImage(e.target.files[0],img=>{$('resizeWidth').value=img.width;$('resizeHeight').value=img.height});if(e.target.id==='keepRatio'){}});
-document.addEventListener('input',e=>{if(e.target.id==='resizeWidth'&&$('keepRatio')?.checked){const f=$('resizeInput').files[0];if(f)readImage(f,img=>$('resizeHeight').value=Math.round(Number(e.target.value)*img.height/img.width))}});
+document.addEventListener('input',e=>{
+  if(!$('keepRatio')?.checked)return;
+  const f=$('resizeInput')?.files[0];
+  if(!f)return;
+  if(e.target.id==='resizeWidth'){
+    const w=Number(e.target.value);
+    if(w>0)readImage(f,img=>$('resizeHeight').value=Math.max(1,Math.round(w*img.height/img.width)));
+  }
+  if(e.target.id==='resizeHeight'){
+    const h=Number(e.target.value);
+    if(h>0)readImage(f,img=>$('resizeWidth').value=Math.max(1,Math.round(h*img.width/img.height)));
+  }
+});
 if(localStorage.getItem('tot_theme')==='dark')document.body.classList.add('dark');
 renderFilters();renderCategories();renderTools();
 </script>
