@@ -1952,13 +1952,56 @@ document.getElementById("luckyGreeting").textContent =
 <!-- ================= TOOL OF TOOLS FOOTER ================= -->
 
 <footer class="tot-footer">
- <section class="section" id="about"><h2 class="section-title">ℹ️ About Tool of Tools</h2><div class="info-grid"><div class="info-card"><h3>Simple</h3><p>Useful utilities in one clean interface.</p></div><div class="info-card"><h3>Fast</h3><p>Many utilities run directly in your browser.</p></div><div class="info-card"><h3>Free</h3><p>The core collection is free and accessible.</p></div></div></section>
+ <section class="section" id="about"><h2 class="section-title"> About Tool of Tools</h2><div class="info-grid"><div class="info-card"><h3>Simple</h3><p>Useful utilities in one clean interface.</p></div><div class="info-card"><h3>Fast</h3><p>Many utilities run directly in your browser.</p></div><div class="info-card"><h3>Free</h3><p>The core collection is free and accessible.</p></div></div></section>
 <section class="section" id="privacy"><h2 class="section-title">🔒 Privacy Policy</h2><div class="info-card"><p>Tool of Tools is designed around browser-based utilities. Files selected for client-side tools are processed locally and are not intentionally uploaded by this page.</p><br><p>Do not enter passwords, payment details or highly sensitive information into third-party services unless their privacy terms are understood.</p></div></section>
 
   
 
 </style>
+<style>
+#about,
+#privacy,
+#faq,
+#contact{
+  scroll-margin-top:90px;
+}
 
+#about .section-title,
+#privacy .section-title,
+#faq .section-title,
+#contact .section-title{
+  font-weight:800;
+  color:#4f46e5 !important;
+  font-size:24px;
+}
 
+#about h2,
+#privacy h2,
+#faq h2,
+#contact h2{
+  font-weight:800;
+  color:#4f46e5 !important;
+}
+
+#about,
+#privacy,
+#faq,
+#contact{
+  border-left:4px solid #4f46e5;
+  padding-left:18px;
+}
+
+footer a{
+  font-weight:800 !important;
+  color:#4f46e5 !important;
+  text-decoration:none;
+  margin:0 8px;
+}
+
+footer a:hover{
+  color:#16a34a !important;
+  text-decoration:underline;
+}
+</style>
 </body>
 </html>
