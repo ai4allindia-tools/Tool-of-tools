@@ -144,7 +144,7 @@ function showFavorites(){favoriteMode=true;renderFilters();renderTools();$('tool
 function renderTools(){
  const q=$('searchInput').value.toLowerCase().trim();
  let list=tools.filter(t=>(favoriteMode?favorites.includes(t.id):(activeCat==='All'||t.cat===activeCat))&&(t.name+' '+t.desc+' '+t.cat).toLowerCase().includes(q));
- if(!favoriteMode&&activeCat==='All'&&!q&&recent.length){list.sort((a,b)=>{let ai=recent.indexOf(a.id),bi=recent.indexOf(b.id);ai=ai<0?999:ai;bi=bi<0?999:bi;return ai-bi})}
+
  $('toolGrid').innerHTML=list.length?list.map(t=>`<article class="tool"><button class="star ${favorites.includes(t.id)?'active':''}" onclick="toggleFav('${t.id}')" aria-label="Favorite">${favorites.includes(t.id)?'★':'☆'}</button><div class="tool-icon">${t.icon}</div><h3>${t.name}</h3><p>${t.desc}</p><div class="tool-meta"><button class="primary" onclick="openTool('${t.id}')">Open Tool</button></div></article>`).join(''):`<div class="empty">${favoriteMode?'No favorite tools yet. Tap ☆ on any tool to save it.':'No matching tool found. Try another search.'}</div>`;
 }
 function toggleFav(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];localStorage.setItem('tot_favorites',JSON.stringify(favorites));renderTools();toast(favorites.includes(id)?'Added to favorites':'Removed from favorites')}
