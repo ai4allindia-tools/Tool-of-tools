@@ -257,4 +257,1688 @@ function shareSite(){if(navigator.share)navigator.share({title:'Tool of Tools',t
 if(localStorage.getItem('tot_theme')==='dark')document.body.classList.add('dark');
 renderFilters();renderCategories();renderTools();
 </script>
+<!-- =========================================================
+     LUCKY HEALTH & FITNESS — COMPLETE SEPARATE SEGMENT
+========================================================= -->
+
+<style>
+
+.lucky-health-section{
+    width:100%;
+    margin:35px 0;
+    padding:28px;
+    border-radius:24px;
+    background:linear-gradient(135deg,#eefbf7,#eef6ff);
+    border:2px solid #d5eee6;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.lucky-health-header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.lucky-health-header h2{
+    font-size:30px;
+    margin:0 0 8px;
+    color:#075985;
+}
+
+.lucky-health-header p{
+    margin:0;
+    color:#586574;
+}
+
+.lucky-health-box{
+    background:#fff;
+    padding:22px;
+    border-radius:18px;
+    margin-top:18px;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+}
+
+.lucky-health-box h3{
+    margin-top:0;
+    color:#047857;
+}
+
+.lucky-health-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.lucky-health-grid label{
+    display:block;
+    font-weight:bold;
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+.lucky-health-grid input,
+.lucky-health-grid select{
+    width:100%;
+    padding:12px;
+    border:1px solid #d6dee5;
+    border-radius:10px;
+    background:#fff;
+    font-size:15px;
+}
+
+.lucky-health-btn{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:10px;
+    background:#047857;
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+.lucky-health-btn:hover{
+    opacity:.9;
+}
+
+.lucky-result-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:18px;
+}
+
+.lucky-result{
+    background:#f1f8f6;
+    padding:14px;
+    border-radius:12px;
+}
+
+.lucky-result strong{
+    display:block;
+    font-size:20px;
+    margin-top:5px;
+    color:#075985;
+}
+
+.lucky-result small{
+    color:#68737e;
+}
+
+.lucky-coach{
+    background:linear-gradient(135deg,#075985,#047857);
+    color:white;
+    padding:22px;
+    border-radius:18px;
+    margin-top:18px;
+}
+
+.lucky-coach h3{
+    color:white;
+    margin-top:0;
+}
+
+.lucky-coach-script{
+    background:rgba(255,255,255,.12);
+    padding:15px;
+    border-radius:12px;
+    line-height:1.6;
+    margin:12px 0;
+}
+
+.lucky-voice-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.lucky-voice-buttons button{
+    flex:1;
+    padding:12px;
+    border:0;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.lucky-food-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:18px;
+}
+
+.lucky-food-table th,
+.lucky-food-table td{
+    padding:11px;
+    border-bottom:1px solid #e4e9ed;
+    text-align:left;
+}
+
+.lucky-food-table th{
+    background:#f4f7f9;
+}
+
+.lucky-plan-month{
+    margin-top:20px;
+}
+
+.lucky-day{
+    border:1px solid #e1e7eb;
+    border-radius:12px;
+    padding:14px;
+    margin:10px 0;
+}
+
+.lucky-day h4{
+    margin:0 0 7px;
+    color:#047857;
+}
+
+.lucky-tag{
+    display:inline-block;
+    background:#e8f5f0;
+    padding:5px 8px;
+    border-radius:20px;
+    font-size:12px;
+    margin:3px;
+}
+
+.lucky-note{
+    color:#63707c;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.lucky-warning{
+    margin-top:18px;
+    padding:15px;
+    background:#fff8e5;
+    border-left:5px solid #e0a11b;
+    border-radius:8px;
+    font-size:13px;
+    line-height:1.6;
+}
+
+@media(max-width:800px){
+
+    .lucky-health-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .lucky-result-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:520px){
+
+    .lucky-health-section{
+        padding:16px;
+    }
+
+    .lucky-health-grid,
+    .lucky-result-grid{
+        grid-template-columns:1fr;
+    }
+
+    .lucky-health-header h2{
+        font-size:25px;
+    }
+
+    .lucky-voice-buttons{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+
+
+<!-- ================= HEALTH & FITNESS ================= -->
+
+<section class="lucky-health-section" id="luckyHealthFitness">
+
+<div class="lucky-health-header">
+
+<h2>🏃 Health & Fitness Planner</h2>
+
+<p>
+BMI • Calories • Nutrition • Food Analyzer • 3-Month Home Fitness
+</p>
+
+</div>
+
+
+<!-- PERSONAL DETAILS -->
+
+<div class="lucky-health-box">
+
+<h3>👤 Personal Fitness Profile</h3>
+
+<div class="lucky-health-grid">
+
+<div>
+<label>Age</label>
+<input id="luckyAge" type="number" min="5" max="100" placeholder="Age">
+</div>
+
+<div>
+<label>Gender</label>
+
+<select id="luckyGender">
+
+<option value="male">Male</option>
+
+<option value="female">Female</option>
+
+</select>
+
+</div>
+
+<div>
+<label>Height (cm)</label>
+<input id="luckyHeight" type="number" placeholder="Height">
+</div>
+
+<div>
+<label>Weight (kg)</label>
+<input id="luckyWeight" type="number" placeholder="Weight">
+</div>
+
+<div>
+
+<label>Activity Level</label>
+
+<select id="luckyActivity">
+
+<option value="1.2">
+Sedentary
+</option>
+
+<option value="1.375">
+Lightly Active
+</option>
+
+<option value="1.55" selected>
+Moderately Active
+</option>
+
+<option value="1.725">
+Very Active
+</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label>Goal</label>
+
+<select id="luckyGoal">
+
+<option value="maintain">
+⚖️ Maintain / Fit
+</option>
+
+<option value="gain">
+💪 Body Mass / Muscle Gain
+</option>
+
+<option value="lean">
+🔥 Lean & Fit
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<button class="lucky-health-btn"
+onclick="luckyCalculateFitness()">
+
+Calculate My Fitness Plan
+
+</button>
+
+</div>
+
+
+<!-- RESULTS -->
+
+<div class="lucky-health-box">
+
+<h3>📊 Your Fitness Results</h3>
+
+<div id="luckyResults" class="lucky-result-grid">
+
+<div class="lucky-result">
+BMI
+<strong>—</strong>
+</div>
+
+<div class="lucky-result">
+Calories
+<strong>—</strong>
+</div>
+
+<div class="lucky-result">
+Protein
+<strong>—</strong>
+</div>
+
+<div class="lucky-result">
+Carbs
+<strong>—</strong>
+</div>
+
+</div>
+
+<div id="luckyMoreResults"
+class="lucky-result-grid">
+</div>
+
+<p id="luckyAgeMessage"
+class="lucky-note"></p>
+
+</div>
+
+
+<!-- LUCKY AI COACH -->
+
+<div class="lucky-coach">
+
+<h3>🎙️ Lucky Fitness Coach</h3>
+
+<div id="luckyGreeting"
+class="lucky-coach-script">
+
+“Namaste, Adab! Main Lucky hoon.
+Aapke health aur fitness goals ko achieve karne mein
+main aapki madad karunga.
+Chaliye, aapka fitness plan shuru karte hain.”
+
+</div>
+
+<div class="lucky-voice-buttons">
+
+<button
+onclick="luckySpeak()">
+
+🔊 Lucky Voice
+
+</button>
+
+<button
+onclick="luckyStopVoice()">
+
+⏹ Stop Voice
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FOOD ANALYZER -->
+
+<div class="lucky-health-box">
+
+<h3>🍎 Food Nutrition Analyzer</h3>
+
+<p class="lucky-note">
+
+Kisi food ka naam aur quantity select karein.
+Result mein calories, protein, carbs, fat, fibre aur sugar ka
+approximate measurement milega.
+
+</p>
+
+<div class="lucky-health-grid">
+
+<div>
+
+<label>Food</label>
+
+<select id="luckyFood">
+
+<option value="rice">
+Cooked Rice
+</option>
+
+<option value="dal">
+Cooked Dal
+</option>
+
+<option value="egg">
+Egg
+</option>
+
+<option value="milk">
+Milk
+</option>
+
+<option value="paneer">
+Paneer
+</option>
+
+<option value="chicken">
+Chicken Breast
+</option>
+
+<option value="fish">
+Fish
+</option>
+
+<option value="soy">
+Soy Chunks
+</option>
+
+<option value="banana">
+Banana
+</option>
+
+<option value="apple">
+Apple
+</option>
+
+<option value="oats">
+Oats
+</option>
+
+<option value="peanuts">
+Peanuts
+</option>
+
+<option value="almonds">
+Almonds
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>Quantity</label>
+
+<input
+id="luckyFoodQuantity"
+type="number"
+value="100"
+min="0.1">
+
+</div>
+
+
+<div>
+
+<label>Unit</label>
+
+<select id="luckyFoodUnit">
+
+<option value="g">
+Gram
+</option>
+
+<option value="ml">
+ml
+</option>
+
+<option value="piece">
+Piece
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<button
+class="lucky-health-btn"
+onclick="luckyAnalyzeFood()">
+
+Analyze Food
+
+</button>
+
+<div id="luckyFoodResult"></div>
+
+</div>
+
+
+<!-- EXERCISE PLAN -->
+
+<div class="lucky-health-box">
+
+<h3>🧘 3-Month No-Gym Exercise Plan</h3>
+
+<p class="lucky-note">
+
+Cardio + non-cardio + yoga + stretching + warm-up +
+cool-down + rest/recovery.
+
+</p>
+
+<div id="luckyExercisePlan"></div>
+
+</div>
+
+
+<!-- SAFETY -->
+
+<div class="lucky-warning">
+
+<b>⚠️ Important:</b>
+
+This tool provides general wellness estimates and educational
+information. It is not a medical diagnosis or treatment.
+
+Children and teenagers should use age-appropriate professional
+guidance rather than adult calorie targets.
+
+People who are pregnant, have medical conditions, injuries,
+eating disorders or significant mobility/balance problems should
+consult a qualified healthcare professional before major diet or
+exercise changes.
+
+Stop exercise if you experience chest pain, fainting, severe
+dizziness, unusual breathlessness or significant pain.
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =========================================================
+   LUCKY HEALTH FITNESS DATA
+========================================================= */
+
+const luckyFoods = {
+
+rice:{
+name:"Cooked Rice",
+base:100,
+unit:"g",
+cal:130,
+protein:2.7,
+carbs:28,
+fat:.3,
+fiber:.4,
+sugar:.1
+},
+
+dal:{
+name:"Cooked Dal",
+base:100,
+unit:"g",
+cal:116,
+protein:9,
+carbs:20,
+fat:.4,
+fiber:7.9,
+sugar:1.8
+},
+
+egg:{
+name:"Egg",
+base:1,
+unit:"piece",
+cal:72,
+protein:6.3,
+carbs:.4,
+fat:4.8,
+fiber:0,
+sugar:.2
+},
+
+milk:{
+name:"Milk",
+base:100,
+unit:"ml",
+cal:61,
+protein:3.2,
+carbs:4.8,
+fat:3.3,
+fiber:0,
+sugar:5
+},
+
+paneer:{
+name:"Paneer",
+base:100,
+unit:"g",
+cal:265,
+protein:18,
+carbs:6,
+fat:20,
+fiber:0,
+sugar:2
+},
+
+chicken:{
+name:"Chicken Breast",
+base:100,
+unit:"g",
+cal:165,
+protein:31,
+carbs:0,
+fat:3.6,
+fiber:0,
+sugar:0
+},
+
+fish:{
+name:"Fish",
+base:100,
+unit:"g",
+cal:150,
+protein:26,
+carbs:0,
+fat:5,
+fiber:0,
+sugar:0
+},
+
+soy:{
+name:"Soy Chunks",
+base:100,
+unit:"g",
+cal:345,
+protein:52,
+carbs:33,
+fat:.5,
+fiber:13,
+sugar:0
+},
+
+banana:{
+name:"Banana",
+base:1,
+unit:"piece",
+cal:105,
+protein:1.3,
+carbs:27,
+fat:.4,
+fiber:3.1,
+sugar:14.4
+},
+
+apple:{
+name:"Apple",
+base:1,
+unit:"piece",
+cal:95,
+protein:.5,
+carbs:25,
+fat:.3,
+fiber:4.4,
+sugar:19
+},
+
+oats:{
+name:"Oats",
+base:100,
+unit:"g",
+cal:389,
+protein:16.9,
+carbs:66.3,
+fat:6.9,
+fiber:10.6,
+sugar:.9
+},
+
+peanuts:{
+name:"Peanuts",
+base:100,
+unit:"g",
+cal:567,
+protein:25.8,
+carbs:16.1,
+fat:49.2,
+fiber:8.5,
+sugar:4.7
+},
+
+almonds:{
+name:"Almonds",
+base:100,
+unit:"g",
+cal:579,
+protein:21.2,
+carbs:21.6,
+fat:49.9,
+fiber:12.5,
+sugar:4.4
+}
+
+};
+
+
+/* =========================================================
+   CALCULATOR
+========================================================= */
+
+function luckyCalculateFitness(){
+
+const age =
+Number(document.getElementById("luckyAge").value);
+
+const gender =
+document.getElementById("luckyGender").value;
+
+const height =
+Number(document.getElementById("luckyHeight").value);
+
+const weight =
+Number(document.getElementById("luckyWeight").value);
+
+const activity =
+Number(document.getElementById("luckyActivity").value);
+
+const goal =
+document.getElementById("luckyGoal").value;
+
+
+if(!age || !height || !weight){
+
+alert("Please enter age, height and weight.");
+
+return;
+
+}
+
+
+const heightMeter =
+height / 100;
+
+
+const bmi =
+weight /
+(heightMeter * heightMeter);
+
+
+let category;
+
+
+if(bmi < 18.5){
+
+category = "Underweight";
+
+}
+
+else if(bmi < 25){
+
+category = "Healthy Range";
+
+}
+
+else if(bmi < 30){
+
+category = "Overweight";
+
+}
+
+else{
+
+category = "Obesity Range";
+
+}
+
+
+/* BMR */
+
+let bmr;
+
+
+if(gender === "male"){
+
+bmr =
+(10 * weight) +
+(6.25 * height) -
+(5 * age) +
+5;
+
+}
+
+else{
+
+bmr =
+(10 * weight) +
+(6.25 * height) -
+(5 * age) -
+161;
+
+}
+
+
+let maintenance =
+bmr * activity;
+
+
+let calories =
+maintenance;
+
+let protein;
+
+
+if(age < 18){
+
+protein =
+weight * 1.0;
+
+}
+
+else if(goal === "gain"){
+
+calories =
+maintenance + 250;
+
+protein =
+weight * 1.6;
+
+}
+
+else if(goal === "lean"){
+
+calories =
+Math.max(
+maintenance - 250,
+bmr * 1.2
+);
+
+protein =
+weight * 1.6;
+
+}
+
+else{
+
+protein =
+weight * 1.2;
+
+}
+
+
+const fat =
+(calories * .25) / 9;
+
+
+const carbs =
+Math.max(
+0,
+(calories -
+protein * 4 -
+fat * 9) / 4
+);
+
+
+const water =
+weight * .035;
+
+
+const healthyMin =
+18.5 *
+heightMeter *
+heightMeter;
+
+
+const healthyMax =
+24.9 *
+heightMeter *
+heightMeter;
+
+
+/* RESULTS */
+
+document.getElementById("luckyResults").innerHTML = `
+
+<div class="lucky-result">
+
+BMI
+
+<strong>
+${bmi.toFixed(1)}
+</strong>
+
+<small>
+${category}
+</small>
+
+</div>
+
+
+<div class="lucky-result">
+
+Daily Calories
+
+<strong>
+${Math.round(calories)} kcal
+</strong>
+
+<small>
+Estimated target
+</small>
+
+</div>
+
+
+<div class="lucky-result">
+
+Protein
+
+<strong>
+${Math.round(protein)} g
+</strong>
+
+<small>
+Approx. daily target
+</small>
+
+</div>
+
+
+<div class="lucky-result">
+
+Carbohydrates
+
+<strong>
+${Math.round(carbs)} g
+</strong>
+
+<small>
+Approx. daily target
+</small>
+
+</div>
+
+`;
+
+
+document.getElementById("luckyMoreResults").innerHTML = `
+
+<div class="lucky-result">
+
+Fat
+
+<strong>
+${Math.round(fat)} g
+</strong>
+
+<small>
+Approx. daily target
+</small>
+
+</div>
+
+
+<div class="lucky-result">
+
+Water
+
+<strong>
+${water.toFixed(1)} L
+</strong>
+
+<small>
+Approximate need
+</small>
+
+</div>
+
+
+<div class="lucky-result">
+
+Healthy Weight
+
+<strong>
+${healthyMin.toFixed(1)} –
+${healthyMax.toFixed(1)} kg
+</strong>
+
+<small>
+Adult BMI reference
+</small>
+
+</div>
+
+
+<div class="lucky-result">
+
+Goal
+
+<strong>
+
+${
+goal === "gain"
+? "Mass Gain"
+: goal === "lean"
+? "Lean & Fit"
+: "Maintain"
+
+}
+
+</strong>
+
+<small>
+Selected goal
+</small>
+
+</div>
+
+`;
+
+
+/* AGE MESSAGE */
+
+let message;
+
+
+if(age < 18){
+
+message =
+"For children and teenagers, adult BMI categories and aggressive calorie targets should not be used. Focus on balanced nutrition, growth, sleep and enjoyable physical activity with age-appropriate guidance.";
+
+}
+
+else if(age >= 60){
+
+message =
+"For older adults, prioritize mobility, balance, strength, walking and recovery. Keep exercise comfortable and appropriate for your ability.";
+
+}
+
+else if(goal === "gain"){
+
+message =
+"Your selected goal is Body Mass / Muscle Gain. Focus on adequate nutrition, protein, progressive bodyweight strength and good sleep.";
+
+}
+
+else if(goal === "lean"){
+
+message =
+"Your selected goal is Lean & Fit. Combine strength, cardio, mobility, balanced nutrition and adequate protein.";
+
+}
+
+else{
+
+message =
+"For general fitness, combine regular movement, strength, cardio, flexibility, balanced nutrition and recovery.";
+
+}
+
+
+document.getElementById("luckyAgeMessage").textContent =
+message;
+
+
+/* COACH SCRIPT */
+
+const goalText =
+goal === "gain"
+? "body mass aur strength badhana"
+: goal === "lean"
+? "lean aur fit rehna"
+: "healthy fitness maintain karna";
+
+
+const coachScript =
+
+`Namaste, Adab! Main Lucky hoon. ` +
+
+`Aapka BMI ${bmi.toFixed(1)} hai, jo ${category} category mein hai. ` +
+
+`Aapke selected goal ke liye estimated daily calorie target ` +
+
+`${Math.round(calories)} calories hai. ` +
+
+`Protein approximately ${Math.round(protein)} gram, ` +
+
+`carbohydrates ${Math.round(carbs)} gram aur fat ` +
+
+`${Math.round(fat)} gram ke aas-paas hai. ` +
+
+`Aapka goal ${goalText} hai. ` +
+
+`Main aapke liye teen mahine ka no-gym fitness plan bhi tayyar kar raha hoon. ` +
+
+`Workout se pehle warm-up aur workout ke baad cool-down aur stretching zaroor rakhein. ` +
+
+`Chaliye, consistency ke saath fitness journey shuru karte hain.`;
+
+
+document.getElementById("luckyGreeting").textContent =
+coachScript;
+
+
+luckyCreateExercisePlan(age,goal);
+
+}
+
+
+/* =========================================================
+   FOOD ANALYZER
+========================================================= */
+
+function luckyAnalyzeFood(){
+
+const foodKey =
+document.getElementById("luckyFood").value;
+
+const quantity =
+Number(document.getElementById("luckyFoodQuantity").value);
+
+const unit =
+document.getElementById("luckyFoodUnit").value;
+
+
+if(!quantity){
+
+alert("Please enter food quantity.");
+
+return;
+
+}
+
+
+const food =
+luckyFoods[foodKey];
+
+
+let factor;
+
+
+if(unit === food.unit){
+
+factor =
+quantity / food.base;
+
+}
+
+else{
+
+/*
+General estimate.
+For piece-based foods, use piece as the
+preferred unit.
+*/
+
+factor =
+quantity / food.base;
+
+}
+
+
+const calories =
+food.cal * factor;
+
+const protein =
+food.protein * factor;
+
+const carbs =
+food.carbs * factor;
+
+const fat =
+food.fat * factor;
+
+const fiber =
+food.fiber * factor;
+
+const sugar =
+food.sugar * factor;
+
+
+document.getElementById("luckyFoodResult").innerHTML = `
+
+<table class="lucky-food-table">
+
+<tr>
+
+<th>
+Nutrition
+</th>
+
+<th>
+Estimated Amount
+</th>
+
+</tr>
+
+
+<tr>
+
+<td>
+Calories
+</td>
+
+<td>
+${calories.toFixed(1)} kcal
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Protein
+</td>
+
+<td>
+${protein.toFixed(1)} g
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Carbohydrates
+</td>
+
+<td>
+${carbs.toFixed(1)} g
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Fat
+</td>
+
+<td>
+${fat.toFixed(1)} g
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Fibre
+</td>
+
+<td>
+${fiber.toFixed(1)} g
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Sugar
+</td>
+
+<td>
+${sugar.toFixed(1)} g
+</td>
+
+</tr>
+
+</table>
+
+<p class="lucky-note">
+
+Approximate values. Actual nutrition can vary by
+variety, recipe, cooking method and brand.
+
+</p>
+
+`;
+
+}
+
+
+/* =========================================================
+   3 MONTH PLAN
+========================================================= */
+
+function luckyCreateExercisePlan(age,goal){
+
+const older =
+age >= 60;
+
+const child =
+age < 13;
+
+
+let goalFocus;
+
+
+if(goal === "gain"){
+
+goalFocus =
+"💪 Body Mass Goal: bodyweight strength + gradual progression + recovery.";
+
+}
+
+else if(goal === "lean"){
+
+goalFocus =
+"🔥 Lean Goal: cardio + strength + mobility + balanced nutrition.";
+
+}
+
+else{
+
+goalFocus =
+"⚖️ Fitness Goal: balanced cardio + strength + yoga + recovery.";
+
+}
+
+
+const months = [
+
+{
+
+title:"Month 1 — Foundation",
+
+days:[
+
+["Monday",
+"Brisk walking + full-body stretching"],
+
+["Tuesday",
+"Chair squats + wall push-ups + glute bridge + easy yoga"],
+
+["Wednesday",
+"Easy cardio + mobility"],
+
+["Thursday",
+"Bodyweight full-body exercises + stretching"],
+
+["Friday",
+"Yoga + relaxed walking"],
+
+["Saturday",
+"Walking / cycling / dancing"],
+
+["Sunday",
+"Rest + gentle stretching"]
+
+]
+
+},
+
+{
+
+title:"Month 2 — Progress",
+
+days:[
+
+["Monday",
+"30–40 min cardio + stretching"],
+
+["Tuesday",
+"Squats + push-up variation + bridge + bird-dog"],
+
+["Wednesday",
+"Yoga + mobility"],
+
+["Thursday",
+"Cardio intervals + stretching"],
+
+["Friday",
+"Full-body bodyweight strength"],
+
+["Saturday",
+"Walking / cycling / dancing + yoga"],
+
+["Sunday",
+"Rest and recovery"]
+
+]
+
+},
+
+{
+
+title:"Month 3 — Fitness",
+
+days:[
+
+["Monday",
+"35–45 min cardio + mobility"],
+
+["Tuesday",
+"Full-body strength + core"],
+
+["Wednesday",
+"Yoga + stretching"],
+
+["Thursday",
+"Cardio intervals + cool-down"],
+
+["Friday",
+"Strength + core + mobility"],
+
+["Saturday",
+"Long easy cardio + yoga"],
+
+["Sunday",
+"Rest + recovery"]
+
+]
+
+}
+
+];
+
+
+let html =
+`<p class="lucky-note">${goalFocus}</p>`;
+
+
+months.forEach(function(month){
+
+html += `
+
+<div class="lucky-plan-month">
+
+<h3>
+${month.title}
+</h3>
+
+`;
+
+
+month.days.forEach(function(day){
+
+let exercise =
+day[1];
+
+
+if(child){
+
+exercise =
+exercise.replace(
+/intervals/gi,
+"easy activity"
+);
+
+}
+
+
+if(older){
+
+exercise +=
+" — comfortable intensity, balance and mobility priority.";
+
+}
+
+
+html += `
+
+<div class="lucky-day">
+
+<h4>
+${day[0]}
+</h4>
+
+<p>
+${exercise}
+</p>
+
+<span class="lucky-tag">
+🔥 Cardio / Activity
+</span>
+
+<span class="lucky-tag">
+💪 Non-Cardio
+</span>
+
+<span class="lucky-tag">
+🧘 Yoga
+</span>
+
+<span class="lucky-tag">
+🤸 Stretching
+</span>
+
+<span class="lucky-tag">
+⏱ Warm-up 5–8 min
+</span>
+
+<span class="lucky-tag">
+❄️ Cool-down 5–8 min
+</span>
+
+</div>
+
+`;
+
+});
+
+
+html += `</div>`;
+
+});
+
+
+document.getElementById("luckyExercisePlan").innerHTML =
+html;
+
+}
+
+
+/* =========================================================
+   LUCKY MALE VOICE
+========================================================= */
+
+function luckySpeak(){
+
+const text =
+document.getElementById("luckyGreeting").textContent;
+
+
+if(!("speechSynthesis" in window)){
+
+alert(
+"Your browser does not support voice playback."
+);
+
+return;
+
+}
+
+
+window.speechSynthesis.cancel();
+
+
+const speech =
+new SpeechSynthesisUtterance(text);
+
+
+/*
+Browser/device voices determine the exact
+male voice available.
+*/
+
+speech.lang = "hi-IN";
+
+speech.rate = 0.92;
+
+speech.pitch = 0.85;
+
+speech.volume = 1;
+
+
+const voices =
+window.speechSynthesis.getVoices();
+
+
+const maleVoice =
+voices.find(function(voice){
+
+return (
+
+voice.lang.toLowerCase().includes("hi") &&
+(
+voice.name.toLowerCase().includes("male") ||
+voice.name.toLowerCase().includes("man") ||
+voice.name.toLowerCase().includes("google")
+)
+
+);
+
+});
+
+
+if(maleVoice){
+
+speech.voice =
+maleVoice;
+
+}
+
+
+window.speechSynthesis.speak(speech);
+
+}
+
+
+function luckyStopVoice(){
+
+if("speechSynthesis" in window){
+
+window.speechSynthesis.cancel();
+
+}
+
+}
+
+
+/* =========================================================
+   DEFAULT LUCKY GREETING
+========================================================= */
+
+document.getElementById("luckyGreeting").textContent =
+
+"Namaste, Adab! Main Lucky hoon. " +
+
+"Aapke health aur fitness goals ko achieve karne mein " +
+
+"main aapki madad karunga. " +
+
+"Chaliye, aapka fitness plan shuru karte hain.";
+
+</script>
+
+<!-- END LUCKY HEALTH & FITNESS -->
 </body></html>
