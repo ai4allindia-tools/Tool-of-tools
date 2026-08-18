@@ -90,15 +90,21 @@ footer{background:#fff;border-top:1px solid #e6e1ec;text-align:center;padding:30
 </div>
 
 <!-- HEALTH & FITNESS CATEGORY -->
-
 <div class="tool-card health-category-card"
- onclick="document.getElementById('luckyHealthFitness').scrollIntoView({behavior:'smooth'})">
- <section class="section faq" id="faq"><h2 class="section-title">❓ FAQ</h2><details><summary>Are the tools free?</summary><p>Yes. The current browser tools are free to use.</p></details><details><summary>Are uploaded files stored?</summary><p>Client-side tools process selected files in the browser.</p></details><details><summary>Does it work on mobile?</summary><p>Yes. The interface is responsive for phones, tablets and desktops.</p></details><details><summary>Can I suggest a tool?</summary><p>Use the contact email below with your suggestion.</p></details></section>
-<section class="section" id="contact"><h2 class="section-title">📩 Contact</h2><div class="info-card"><h3>Get in touch</h3><p>Suggestions, bug reports and enquiries are welcome.</p><br><p><strong>Email:</strong> <a href="mailto:ai4allindia.com@gmail.com" style="color:#6d28d9">ai4allindia.com@gmail.com</a></p></div></section>
-<section class="cta"><h2>Find the Right Tool for Your Task.</h2><p class="muted">Fast, simple and useful tools — all in one place.</p></section>
-</main>
-<footer>© 2026 Tool of Tools. All rights reserved.<div style="margin-top:9px"><a href="#about">About</a><a href="#privacy">Privacy</a><a href="#contact">Contact</a><a href="#categories">Categories</a><a href="#faq">FAQ</a></div></footer>
-<div id="toast" class="toast"></div>
+     onclick="document.getElementById('luckyHealthFitness').scrollIntoView({behavior:'smooth',block:'start'})">
+
+  <div class="tool-icon">❤️</div>
+
+  <h3>Health & Fitness Tools</h3>
+
+  <p>BMI • Calories • Nutrition • Fitness • Workout</p>
+
+  <button type="button"
+          onclick="event.stopPropagation(); document.getElementById('luckyHealthFitness').scrollIntoView({behavior:'smooth',block:'start'});">
+    Explore Health Tools →
+  </button>
+
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
