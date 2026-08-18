@@ -75,14 +75,7 @@ footer{background:#fff;border-top:1px solid #e6e1ec;text-align:center;padding:30
 <div class="toolbox" id="toolBox"><div style="display:flex;justify-content:space-between;gap:12px;align-items:start"><div><h2 id="boxTitle">Tool</h2><p id="boxDesc"></p></div><button class="secondary" onclick="closeTool()">Close</button></div><div id="boxContent"></div></div></section>
 <div class="ad-space">Advertisement space</div>
 <section class="section" id="categories"><h2 class="section-title">🧰 Tool Categories</h2><div class="categories" id="categoryGrid"></div></section>
-<section class="section" id="about"><h2 class="section-title">ℹ️ About Tool of Tools</h2><div class="info-grid"><div class="info-card"><h3>Simple</h3><p>Useful utilities in one clean interface.</p></div><div class="info-card"><h3>Fast</h3><p>Many utilities run directly in your browser.</p></div><div class="info-card"><h3>Free</h3><p>The core collection is free and accessible.</p></div></div></section>
-<section class="section" id="privacy"><h2 class="section-title">🔒 Privacy Policy</h2><div class="info-card"><p>Tool of Tools is designed around browser-based utilities. Files selected for client-side tools are processed locally and are not intentionally uploaded by this page.</p><br><p>Do not enter passwords, payment details or highly sensitive information into third-party services unless their privacy terms are understood.</p></div></section>
-<!-- HEALTH & FITNESS CATEGORY -->
-
-<div class="tool-card health-category-card"
-     onclick="document.getElementById('luckyHealthFitness').scrollIntoView({behavior:'smooth'})">
-
-  <div class="tool-icon">❤️</div>
+<div class="tool-icon">❤️</div>
 
   <h3>Health & Fitness Tools</h3>
 
@@ -95,6 +88,11 @@ footer{background:#fff;border-top:1px solid #e6e1ec;text-align:center;padding:30
   </button>
 
 </div>
+
+<!-- HEALTH & FITNESS CATEGORY -->
+
+<div class="tool-card health-category-card"
+ onclick="document.getElementById('luckyHealthFitness').scrollIntoView({behavior:'smooth'})">
  <section class="section faq" id="faq"><h2 class="section-title">❓ FAQ</h2><details><summary>Are the tools free?</summary><p>Yes. The current browser tools are free to use.</p></details><details><summary>Are uploaded files stored?</summary><p>Client-side tools process selected files in the browser.</p></details><details><summary>Does it work on mobile?</summary><p>Yes. The interface is responsive for phones, tablets and desktops.</p></details><details><summary>Can I suggest a tool?</summary><p>Use the contact email below with your suggestion.</p></details></section>
 <section class="section" id="contact"><h2 class="section-title">📩 Contact</h2><div class="info-card"><h3>Get in touch</h3><p>Suggestions, bug reports and enquiries are welcome.</p><br><p><strong>Email:</strong> <a href="mailto:ai4allindia.com@gmail.com" style="color:#6d28d9">ai4allindia.com@gmail.com</a></p></div></section>
 <section class="cta"><h2>Find the Right Tool for Your Task.</h2><p class="muted">Fast, simple and useful tools — all in one place.</p></section>
@@ -1964,215 +1962,10 @@ document.getElementById("luckyGreeting").textContent =
 <!-- ================= TOOL OF TOOLS FOOTER ================= -->
 
 <footer class="tot-footer">
+ <section class="section" id="about"><h2 class="section-title">ℹ️ About Tool of Tools</h2><div class="info-grid"><div class="info-card"><h3>Simple</h3><p>Useful utilities in one clean interface.</p></div><div class="info-card"><h3>Fast</h3><p>Many utilities run directly in your browser.</p></div><div class="info-card"><h3>Free</h3><p>The core collection is free and accessible.</p></div></div></section>
+<section class="section" id="privacy"><h2 class="section-title">🔒 Privacy Policy</h2><div class="info-card"><p>Tool of Tools is designed around browser-based utilities. Files selected for client-side tools are processed locally and are not intentionally uploaded by this page.</p><br><p>Do not enter passwords, payment details or highly sensitive information into third-party services unless their privacy terms are understood.</p></div></section>
 
-  <div class="tot-footer-section" id="privacy">
-
-    <h3>🔒 Privacy Policy</h3>
-
-    <p>
-      Tool of Tools is designed around browser-based utilities.
-      Files selected for client-side tools are processed locally
-      and are not intentionally uploaded by this page.
-    </p>
-
-    <p>
-      Do not enter passwords, payment details or highly sensitive
-      information into third-party services unless their privacy
-      terms are understood.
-    </p>
-
-  </div>
-
-
-  <div class="tot-footer-section" id="faq">
-
-    <h3>❓ FAQ</h3>
-
-    <h4>Are the tools free?</h4>
-
-    <p>
-      Yes. The current browser tools are free to use.
-    </p>
-
-    <h4>Are uploaded files stored?</h4>
-
-    <p>
-      Client-side tools are designed to process selected files
-      locally in the browser.
-    </p>
-
-    <h4>Does it work on mobile?</h4>
-
-    <p>
-      Yes. Most browser-based tools work on mobile, tablet
-      and desktop devices.
-    </p>
-
-    <h4>Can I suggest a tool?</h4>
-
-    <p>
-      Suggestions, bug reports and enquiries are welcome.
-    </p>
-
-  </div>
-
-
-  <div class="tot-footer-section" id="contact">
-
-    <h3>📩 Contact</h3>
-
-    <h4>Get in touch</h4>
-
-    <p>
-      Suggestions, bug reports and enquiries are welcome.
-    </p>
-
-    <p>
-      Email:
-      ai4allindia.com@gmail.com
-    </p>
-
-  </div>
-
-
-  <div class="tot-footer-bottom">
-
-    <h3>
-      Find the Right Tool for Your Task.
-    </h3>
-
-    <p>
-      Fast, simple and useful tools — all in one place.
-    </p>
-
-
-    <nav class="tot-footer-nav">
-
-      <a href="#about">About</a>
-
-      <a href="#privacy">Privacy</a>
-
-      <a href="#contact">Contact</a>
-
-      <a href="#categories">Categories</a>
-
-      <a href="#faq">FAQ</a>
-
-    </nav>
-
-
-    <p>
-      © 2026 Tool of Tools. All rights reserved.
-    </p>
-
-  </div>
-
-</footer>
-
-
-<style>
-
-.tot-footer{
-
-  margin-top:35px;
-
-  padding:35px 20px;
-
-  background:#f5f7f9;
-
-  border-top:1px solid #dfe5ea;
-
-  color:#26323d;
-
-}
-
-.tot-footer-section{
-
-  max-width:1000px;
-
-  margin:0 auto 30px;
-
-}
-
-.tot-footer-section h3{
-
-  color:#075985;
-
-  margin-bottom:12px;
-
-}
-
-.tot-footer-section h4{
-
-  margin:14px 0 5px;
-
-}
-
-.tot-footer-section p{
-
-  line-height:1.6;
-
-  margin:7px 0;
-
-}
-
-.tot-footer-bottom{
-
-  max-width:1000px;
-
-  margin:auto;
-
-  padding-top:22px;
-
-  text-align:center;
-
-  border-top:1px solid #dfe5ea;
-
-}
-
-.tot-footer-bottom h3{
-
-  margin-bottom:8px;
-
-}
-
-.tot-footer-nav{
-
-  margin:18px 0;
-
-}
-
-.tot-footer-nav a{
-
-  margin:0 8px;
-
-  text-decoration:none;
-
-}
-
-.tot-footer-nav a:hover{
-
-  text-decoration:underline;
-
-}
-
-@media(max-width:600px){
-
-  .tot-footer{
-
-    padding:25px 15px;
-
-  }
-
-  .tot-footer-nav a{
-
-    display:inline-block;
-
-    margin:5px 7px;
-
-  }
-
-}
+  
 
 </style>
 
