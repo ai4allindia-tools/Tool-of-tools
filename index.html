@@ -497,7 +497,7 @@ renderFilters();renderCategories();renderTools();
     }
 
 }
-
+     
 </style>
 
 
@@ -619,38 +619,59 @@ Calculate My Fitness Plan
 
 <div id="luckyResults" class="lucky-result-grid">
 
-<div class="lucky-result">
-BMI
-<strong>—</strong>
-</div>
+    <div class="lucky-result">
+        <span>⚖️ BMI</span>
+        <strong id="luckyBMIResult">—</strong>
+        <small id="luckyBMIStatus">Your BMI will appear here.</small>
+    </div>
 
-<div class="lucky-result">
-Calories
-<strong>—</strong>
-</div>
+    <div class="lucky-result">
+        <span>🔥 Daily Calories</span>
+        <strong id="luckyCaloriesResult">—</strong>
+        <small>Estimated daily calorie target</small>
+    </div>
 
-<div class="lucky-result">
-Protein
-<strong>—</strong>
-</div>
+    <div class="lucky-result">
+        <span>💪 Protein</span>
+        <strong id="luckyProteinResult">—</strong>
+        <small>Estimated daily protein target</small>
+    </div>
 
-<div class="lucky-result">
-Carbs
-<strong>—</strong>
-</div>
-
-</div>
-
-<div id="luckyMoreResults"
-class="lucky-result-grid">
-</div>
-
-<p id="luckyAgeMessage"
-class="lucky-note"></p>
+    <div class="lucky-result">
+        <span>🍚 Carbs</span>
+        <strong id="luckyCarbsResult">—</strong>
+        <small>Estimated daily carbohydrate target</small>
+    </div>
 
 </div>
 
+<div id="luckyMoreResults" class="lucky-result-grid">
 
+    <div class="lucky-result">
+        <span>🎯 Fitness Goal</span>
+        <strong id="luckyGoalResult">—</strong>
+        <small>Your selected fitness objective</small>
+    </div>
+
+    <div class="lucky-result">
+        <span>🏃 Activity Level</span>
+        <strong id="luckyActivityResult">—</strong>
+        <small>Your selected activity level</small>
+    </div>
+
+</div>
+
+<p id="luckyAgeMessage" class="lucky-note"></p>
+
+<div class="lucky-warning">
+    <strong>⚠️ Important:</strong>
+    This tool provides general wellness estimates and educational
+    information. It is not a medical diagnosis or treatment.
+    Children and teenagers should use age-appropriate professional
+    guidance rather than adult calorie targets.
+</div>
+
+</div>
 <!-- LUCKY AI COACH -->
 
 <div class="lucky-coach">
